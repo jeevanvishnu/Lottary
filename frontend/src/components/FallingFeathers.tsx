@@ -23,7 +23,7 @@ export const FallingFeathers = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 pointer-events-none z-[100] overflow-hidden">
+    <div className="hidden lg:block absolute inset-0 pointer-events-none z-[100] overflow-hidden">
       {feathers.map((f) => (
         <div
           key={f.id}
