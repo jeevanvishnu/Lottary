@@ -16,33 +16,33 @@ export const FaqSection = () => {
   return (
     <section className="py-20 px-8 max-w-3xl mx-auto w-full relative z-10">
       <div className="text-center mb-16 relative">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl z-0"></div>
-        <div className="inline-flex items-center justify-center p-3 bg-purple-900/50 rounded-2xl mb-4 border border-cyan-500/30 text-cyan-400 relative z-10 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
-           <HelpCircle className="w-8 h-8" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#D4A017]/08 rounded-full blur-3xl z-0"></div>
+        <div className="inline-flex items-center justify-center p-3 bg-[#003344]/60 rounded-2xl mb-4 border border-[#D4A017]/30 text-[#D4A017] relative z-10 shadow-[0_0_15px_rgba(212,160,23,0.2)]">
+          <HelpCircle className="w-8 h-8" />
         </div>
         <h2 className="relative z-10 text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-md">
-          Got <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Questions?</span>
+          Got <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4A017] to-amber-300">Questions?</span>
         </h2>
-        <p className="relative z-10 text-neutral-400 text-lg">Everything you need to know about buying tickets and checking results</p>
+        <p className="relative z-10 text-[#94B8C8] text-lg">Everything you need to know about buying tickets and checking results</p>
       </div>
 
       <div className="space-y-4">
         {faqs.map((faq, index) => (
-          <motion.div 
+          <motion.div
             key={index}
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="border border-cyan-500/20 bg-purple-900/30 backdrop-blur-md rounded-2xl overflow-hidden shadow-[0_4px_15px_rgba(0,0,0,0.1)] transition-all hover:border-pink-500/40"
+            className="border border-[#005F73]/30 bg-[#003344]/30 backdrop-blur-md rounded-2xl overflow-hidden shadow-[0_4px_15px_rgba(0,0,0,0.1)] transition-all hover:border-[#D4A017]/30"
           >
             <button
               onClick={() => setOpenIndex(openIndex === index ? null : index)}
-              className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none cursor-pointer hover:bg-purple-900/50 transition-colors group"
+              className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none cursor-pointer hover:bg-[#003344]/50 transition-colors group"
             >
-              <span className={`text-lg font-bold transition-colors ${openIndex === index ? "text-pink-400" : "text-white group-hover:text-cyan-300"}`}>{faq.q}</span>
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${openIndex === index ? "bg-pink-500/20 text-pink-400" : "bg-cyan-900/40 text-cyan-500 group-hover:bg-cyan-500/20"}`}>
-                 <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${openIndex === index ? "rotate-180" : ""}`} />
+              <span className={`text-lg font-bold transition-colors ${openIndex === index ? "text-[#D4A017]" : "text-white group-hover:text-[#D4A017]/80"}`}>{faq.q}</span>
+              <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${openIndex === index ? "bg-[#D4A017]/20 text-[#D4A017]" : "bg-[#005F73]/30 text-[#007A94] group-hover:bg-[#D4A017]/10"}`}>
+                <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${openIndex === index ? "rotate-180" : ""}`} />
               </div>
             </button>
             <AnimatePresence>
@@ -51,7 +51,7 @@ export const FaqSection = () => {
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
-                  className="px-6 pb-5 text-neutral-300 leading-relaxed font-medium"
+                  className="px-6 pb-5 text-[#94B8C8] leading-relaxed font-medium"
                 >
                   <p>{faq.a}</p>
                 </motion.div>

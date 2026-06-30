@@ -25,18 +25,18 @@ const renderCard = (card: any, index: number) => (
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay: index * 0.1 }}
-    className="bg-purple-900/40 backdrop-blur-md border border-pink-500/30 rounded-2xl overflow-hidden flex flex-col hover:bg-purple-900/60 transition-all shadow-[0_0_30px_rgba(236,72,153,0.15)] group relative"
+    className="bg-[#003344]/60 backdrop-blur-md border border-[#005F73]/40 rounded-2xl overflow-hidden flex flex-col hover:bg-[#003344]/80 transition-all shadow-[0_0_30px_rgba(0,95,115,0.15)] group relative"
   >
     {/* Image Section */}
     <div className="w-full h-48 overflow-hidden relative">
-      <div className="absolute inset-0 bg-gradient-to-t from-purple-900/90 to-transparent z-10"></div>
-      <img 
-        src={card.image} 
-        alt={card.name} 
+      <div className="absolute inset-0 bg-gradient-to-t from-[#001F2D]/90 to-transparent z-10"></div>
+      <img
+        src={card.image}
+        alt={card.name}
         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
       />
       <div className="absolute bottom-4 left-4 z-20">
-        <span className="bg-pink-500/80 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full border border-pink-400/50">
+        <span className="bg-[#D4A017]/90 backdrop-blur-sm text-[#001F2D] text-xs font-bold px-3 py-1 rounded-full border border-[#D4A017]/70">
           {card.drawDate}
         </span>
       </div>
@@ -44,18 +44,18 @@ const renderCard = (card: any, index: number) => (
 
     {/* Content Section */}
     <div className="p-6 flex flex-col flex-1 relative z-20">
-      <div className="absolute -top-10 -right-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-all pointer-events-none"></div>
-      
+      <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#D4A017]/10 rounded-full blur-2xl group-hover:bg-[#D4A017]/20 transition-all pointer-events-none"></div>
+
       <h3 className="text-xl font-bold text-white mb-2">{card.name}</h3>
-      
-      <div className="flex justify-between items-end mt-auto pt-4 border-t border-white/10 mb-6">
+
+      <div className="flex justify-between items-end mt-auto pt-4 border-t border-[#005F73]/30 mb-6">
         <div>
-          <p className="text-neutral-400 text-xs uppercase tracking-wider mb-1">Ticket Price</p>
-          <p className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">{card.price}</p>
+          <p className="text-[#94B8C8] text-xs uppercase tracking-wider mb-1">Ticket Price</p>
+          <p className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#D4A017] to-amber-300">{card.price}</p>
         </div>
       </div>
 
-      <Button className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-xl py-5 font-bold text-md shadow-[0_0_15px_rgba(236,72,153,0.4)] hover:shadow-[0_0_25px_rgba(236,72,153,0.6)] border-none cursor-pointer">
+      <Button className="w-full bg-gradient-to-r from-[#D4A017] to-[#B8860B] text-[#001F2D] rounded-xl py-5 font-bold text-md shadow-[0_0_15px_rgba(212,160,23,0.4)] hover:shadow-[0_0_25px_rgba(212,160,23,0.6)] border-none cursor-pointer hover:from-amber-400 hover:to-[#D4A017]">
         Buy Now
       </Button>
     </div>
@@ -67,20 +67,20 @@ export const LotteryList = () => {
     <section className="py-20 px-8 max-w-7xl mx-auto w-full relative z-10">
       <div className="text-center mb-12">
         <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-md">
-          Available <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-cyan-400">Lotteries</span>
+          Available <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4A017] to-amber-300">Lotteries</span>
         </h2>
-        <p className="text-neutral-400 text-lg">Choose your ticket and stand a chance to win the jackpot!</p>
+        <p className="text-[#94B8C8] text-lg">Choose your ticket and stand a chance to win the jackpot!</p>
       </div>
 
       <div className="mb-12">
-        <h3 className="text-2xl font-bold text-white mb-6 border-l-4 border-pink-500 pl-4">Today's Draws</h3>
+        <h3 className="text-2xl font-bold text-white mb-6 border-l-4 border-[#D4A017] pl-4">Today's Draws</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {firstSectionCards.map((card, index) => renderCard(card, index))}
         </div>
       </div>
 
       <div>
-        <h3 className="text-2xl font-bold text-white mb-6 border-l-4 border-cyan-400 pl-4">Upcoming Draws</h3>
+        <h3 className="text-2xl font-bold text-white mb-6 border-l-4 border-[#005F73] pl-4">Upcoming Draws</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {secondSectionCards.map((card, index) => renderCard(card, index))}
         </div>
