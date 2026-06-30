@@ -21,9 +21,11 @@ export const WhatsAppBanner = () => {
           <p className="text-teal-50 text-lg md:text-xl mb-10 max-w-2xl mx-auto opacity-90">
             Skip the queue. Message us now to select your numbers and get your digital ticket copy in seconds.
           </p>
-          <Button size="lg" className="bg-[#25D366] hover:bg-[#128C7E] text-white text-lg rounded-full px-10 py-6 font-semibold shadow-lg shadow-[#25D366]/20 transition-all hover:scale-105">
-            <MessageCircle className="w-6 h-6 mr-3" />
-            Chat on WhatsApp
+          <Button size="lg" asChild className="bg-[#25D366] hover:bg-[#128C7E] text-white text-lg rounded-full px-10 py-6 font-semibold shadow-lg shadow-[#25D366]/20 transition-all hover:scale-105">
+            <a href="https://wa.me/919345478572" target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="w-6 h-6 mr-3" />
+              Chat on WhatsApp
+            </a>
           </Button>
         </div>
       </motion.div>

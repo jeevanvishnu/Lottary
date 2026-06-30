@@ -10,7 +10,7 @@ export const AboutUs = () => {
   ];
 
   return (
-    <section className="py-20 px-8 max-w-7xl mx-auto w-full relative z-10">
+    <section id="about" className="py-20 px-8 max-w-7xl mx-auto w-full relative z-10">
       <div className="flex flex-col lg:flex-row gap-16 items-center">
         {/* Text Content */}
         <div className="flex-1">

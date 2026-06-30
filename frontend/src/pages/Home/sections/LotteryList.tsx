@@ -25,18 +25,17 @@ const renderCard = (card: any, index: number) => (
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay: index * 0.1 }}
-    className="bg-[#003344]/60 backdrop-blur-md border border-[#005F73]/40 rounded-2xl overflow-hidden flex flex-col hover:bg-[#003344]/80 transition-all shadow-[0_0_30px_rgba(0,95,115,0.15)] group relative"
+    className="bg-[#022838] border border-[#005F73]/30 rounded-2xl overflow-hidden flex flex-col hover:bg-[#03344a] transition-all shadow-xl group relative"
   >
     {/* Image Section */}
     <div className="w-full h-48 overflow-hidden relative">
-      <div className="absolute inset-0 bg-gradient-to-t from-[#001F2D]/90 to-transparent z-10"></div>
       <img
         src={card.image}
         alt={card.name}
-        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
       />
-      <div className="absolute bottom-4 left-4 z-20">
-        <span className="bg-[#D4A017]/90 backdrop-blur-sm text-[#001F2D] text-xs font-bold px-3 py-1 rounded-full border border-[#D4A017]/70">
+      <div className="absolute bottom-3 left-4 z-20">
+        <span className="bg-[#D4A017] text-[#001F2D] text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
           {card.drawDate}
         </span>
       </div>
@@ -44,18 +43,14 @@ const renderCard = (card: any, index: number) => (
 
     {/* Content Section */}
     <div className="p-6 flex flex-col flex-1 relative z-20">
-      <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#D4A017]/10 rounded-full blur-2xl group-hover:bg-[#D4A017]/20 transition-all pointer-events-none"></div>
+      <h3 className="text-xl font-bold text-white mb-6">{card.name}</h3>
 
-      <h3 className="text-xl font-bold text-white mb-2">{card.name}</h3>
-
-      <div className="flex justify-between items-end mt-auto pt-4 border-t border-[#005F73]/30 mb-6">
-        <div>
-          <p className="text-[#94B8C8] text-xs uppercase tracking-wider mb-1">Ticket Price</p>
-          <p className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#D4A017] to-amber-300">{card.price}</p>
-        </div>
+      <div className="mb-6">
+        <p className="text-[#94B8C8] text-[11px] font-semibold uppercase tracking-wider mb-1">Ticket Price</p>
+        <p className="text-3xl font-black text-[#D4A017]">{card.price}</p>
       </div>
 
-      <Button className="w-full bg-gradient-to-r from-[#D4A017] to-[#B8860B] text-[#001F2D] rounded-xl py-5 font-bold text-md shadow-[0_0_15px_rgba(212,160,23,0.4)] hover:shadow-[0_0_25px_rgba(212,160,23,0.6)] border-none cursor-pointer hover:from-amber-400 hover:to-[#D4A017]">
+      <Button className="w-full mt-auto bg-[#D4A017] text-[#001F2D] rounded-xl py-6 font-bold text-base shadow-none hover:bg-[#EAB308] border-none transition-colors">
         Buy Now
       </Button>
     </div>

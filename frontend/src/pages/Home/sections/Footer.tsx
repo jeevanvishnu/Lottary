@@ -51,7 +51,7 @@ export const Footer = () => {
               <div className="w-10 h-10 rounded-full bg-[#D4A017]/10 flex items-center justify-center text-[#D4A017] group-hover:bg-[#D4A017] group-hover:text-[#001F2D] transition-colors shrink-0">
                 <Phone className="w-4 h-4" />
               </div>
-              <span className="mt-1 group-hover:text-white transition-colors">+91 98765 43210 <br /><span className="text-sm text-[#94B8C8]/60">Support: 9AM - 6PM</span></span>
+              <span className="mt-1 group-hover:text-white transition-colors">+91 93454 78572 <br /><span className="text-sm text-[#94B8C8]/60">Support: 9AM - 6PM</span></span>
             </li>
             <li className="flex items-start gap-4 group cursor-pointer">
               <div className="w-10 h-10 rounded-full bg-[#005F73]/20 flex items-center justify-center text-[#007A94] group-hover:bg-[#005F73] group-hover:text-white transition-colors shrink-0">

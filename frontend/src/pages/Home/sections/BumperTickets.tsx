@@ -30,7 +30,7 @@ const bumperTickets = [
     prize: "₹ 12 Crores",
     ticketPrice: "₹ 300",
     image: lottery03,
-    color: "from-[#007A94] to-[#005F73]",
+    color: "from-[#D4A017] to-[#FCEABB]",
   },
   {
     id: "monsoon",
@@ -39,7 +39,7 @@ const bumperTickets = [
     prize: "₹ 10 Crores",
     ticketPrice: "₹ 250",
     image: lottery01,
-    color: "from-[#005F73] to-[#003344]",
+    color: "from-[#D4A017] to-amber-400",
   },
   {
     id: "thiruvonam",
@@ -57,7 +57,7 @@ const bumperTickets = [
     prize: "₹ 12 Crores",
     ticketPrice: "₹ 300",
     image: lottery03,
-    color: "from-[#007A94] to-[#D4A017]",
+    color: "from-[#D4A017] to-[#FFD700]",
   },
 ];
 
