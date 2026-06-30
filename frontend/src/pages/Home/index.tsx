@@ -16,9 +16,9 @@ import { FallingFeathers } from "@/components/FallingFeathers";
 export const Home = () => {
   return (
     <div className="flex flex-col w-full relative">
-      <FallingFeathers />
       {/* Hero Section */}
       <div id="home" className="relative w-full min-h-[100svh] md:min-h-[90vh] flex flex-col md:flex-row items-center overflow-hidden bg-gradient-to-br from-[#0a0118] via-[#1a0b2e] to-[#0a0118]">
+        <FallingFeathers />
         {/* Background Image Container */}
         <motion.div
           initial={{ opacity: 0 }}
