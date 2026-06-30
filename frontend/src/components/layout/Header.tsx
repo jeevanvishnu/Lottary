@@ -9,6 +9,24 @@ export const Header = () => {
 
   const navItems = ['Home', 'About', 'Result'];
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: string, isMobile: boolean = false) => {
+    e.preventDefault();
+    setActiveItem(item);
+    
+    if (isMobile) {
+      setIsMobileMenuOpen(false);
+    }
+    
+    const targetId = item.toLowerCase();
+    const element = document.getElementById(targetId);
+    if (element) {
+      // Delay for mobile allows the menu closing animation to start
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }, isMobile ? 150 : 0);
+    }
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur-xl bg-[#0a0118]/80 border-b border-white/10 shadow-2xl transition-all duration-300">
       <div className="flex items-center justify-between px-6 py-3 lg:px-12 max-w-7xl w-full mx-auto relative">
@@ -26,7 +44,7 @@ export const Header = () => {
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
-              onClick={() => setActiveItem(item)}
+              onClick={(e) => handleNavClick(e, item)}
               className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeItem === item
                   ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg"
@@ -64,10 +82,7 @@ export const Header = () => {
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  onClick={() => {
-                    setActiveItem(item);
-                    setIsMobileMenuOpen(false);
-                  }}
+                  onClick={(e) => handleNavClick(e, item, true)}
                   className={`px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 ${
                     activeItem === item
                       ? "bg-gradient-to-r from-purple-600/20 to-indigo-600/20 text-white border border-purple-500/30"
