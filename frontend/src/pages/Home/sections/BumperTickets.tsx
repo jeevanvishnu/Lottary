@@ -12,7 +12,7 @@ const bumperTickets = [
     prize: "₹ 20 Crores",
     ticketPrice: "₹ 400",
     image: lottery01,
-    color: "from-[#D4A017] to-amber-500",
+    color: "from-[#fbbf24] to-amber-500",
   },
   {
     id: "summer",
@@ -21,7 +21,7 @@ const bumperTickets = [
     prize: "₹ 10 Crores",
     ticketPrice: "₹ 250",
     image: lottery02,
-    color: "from-[#D4A017] to-[#B8860B]",
+    color: "from-[#fbbf24] to-[#d97706]",
   },
   {
     id: "vishu",
@@ -30,7 +30,7 @@ const bumperTickets = [
     prize: "₹ 12 Crores",
     ticketPrice: "₹ 300",
     image: lottery03,
-    color: "from-[#D4A017] to-[#FCEABB]",
+    color: "from-[#fbbf24] to-[#FCEABB]",
   },
   {
     id: "monsoon",
@@ -39,7 +39,7 @@ const bumperTickets = [
     prize: "₹ 10 Crores",
     ticketPrice: "₹ 250",
     image: lottery01,
-    color: "from-[#D4A017] to-amber-400",
+    color: "from-[#fbbf24] to-amber-400",
   },
   {
     id: "thiruvonam",
@@ -48,7 +48,7 @@ const bumperTickets = [
     prize: "₹ 25 Crores",
     ticketPrice: "₹ 500",
     image: lottery02,
-    color: "from-[#D4A017] to-amber-300",
+    color: "from-[#fbbf24] to-amber-300",
   },
   {
     id: "pooja",
@@ -57,7 +57,7 @@ const bumperTickets = [
     prize: "₹ 12 Crores",
     ticketPrice: "₹ 300",
     image: lottery03,
-    color: "from-[#D4A017] to-[#FFD700]",
+    color: "from-[#fbbf24] to-[#FFD700]",
   },
 ];
 
@@ -71,7 +71,7 @@ export const BumperTickets = () => {
           viewport={{ once: true }}
           className="text-4xl md:text-5xl font-bold mb-4 text-white"
         >
-          Kerala <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4A017] to-amber-300">Bumper Tickets</span>
+          Kerala <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fbbf24] to-amber-300">Bumper Tickets</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -92,7 +92,7 @@ export const BumperTickets = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="group relative rounded-2xl overflow-hidden bg-[#003344] border border-[#005F73]/40 hover:border-[#D4A017]/50 transition-all duration-300 flex flex-col shadow-xl"
+            className="group relative rounded-2xl overflow-hidden bg-[#003344] border border-[#6d28d9]/40 hover:border-[#fbbf24]/50 transition-all duration-300 flex flex-col shadow-xl"
           >
             <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${ticket.color} z-20`} />
 
@@ -103,19 +103,19 @@ export const BumperTickets = () => {
                 alt={ticket.title}
                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
               />
-              <div className="absolute top-4 right-4 z-20 bg-[#001F2D]/80 backdrop-blur-md rounded-lg px-3 py-1.5 border border-[#D4A017]/30 text-center shadow-lg">
+              <div className="absolute top-4 right-4 z-20 bg-[#1a0b2e]/80 backdrop-blur-md rounded-lg px-3 py-1.5 border border-[#fbbf24]/30 text-center shadow-lg">
                 <p className="text-[10px] font-medium text-[#94B8C8] uppercase tracking-widest mb-0.5">Price</p>
-                <p className="font-bold text-[#D4A017] leading-none">{ticket.ticketPrice}</p>
+                <p className="font-bold text-[#fbbf24] leading-none">{ticket.ticketPrice}</p>
               </div>
             </div>
 
             <div className="p-6 flex-1 flex flex-col relative">
               <div className="mb-4">
                 <p className="text-xs font-semibold text-[#94B8C8] mb-2 tracking-wide uppercase">{ticket.drawDate}</p>
-                <h3 className="text-xl font-bold text-white mb-2 leading-tight group-hover:text-[#D4A017] transition-colors">{ticket.title}</h3>
+                <h3 className="text-xl font-bold text-white mb-2 leading-tight group-hover:text-[#fbbf24] transition-colors">{ticket.title}</h3>
               </div>
 
-              <div className="mt-auto pt-5 border-t border-[#005F73]/30 flex items-center justify-between">
+              <div className="mt-auto pt-5 border-t border-[#6d28d9]/30 flex items-center justify-between">
                 <div>
                   <p className="text-[11px] font-semibold text-[#94B8C8] uppercase tracking-wider mb-1">First Prize</p>
                   <p className={`text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r ${ticket.color}`}>
@@ -123,7 +123,7 @@ export const BumperTickets = () => {
                   </p>
                 </div>
 
-                <Button className="rounded-full bg-gradient-to-r from-[#D4A017] to-[#B8860B] text-[#001F2D] hover:from-amber-400 hover:to-[#D4A017] font-bold px-6 shadow-[0_0_15px_rgba(212,160,23,0.3)] hover:shadow-[0_0_20px_rgba(212,160,23,0.5)] transition-all border-none">
+                <Button className="rounded-full bg-gradient-to-r from-[#fbbf24] to-[#d97706] text-[#1a0b2e] hover:from-amber-400 hover:to-[#fbbf24] font-bold px-6 shadow-[0_0_15px_rgba(212,160,23,0.3)] hover:shadow-[0_0_20px_rgba(212,160,23,0.5)] transition-all border-none">
                   Buy Now
                 </Button>
               </div>

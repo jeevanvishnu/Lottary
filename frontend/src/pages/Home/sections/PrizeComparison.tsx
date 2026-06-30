@@ -11,7 +11,7 @@ export const PrizeComparison = () => {
           viewport={{ once: true }}
           className="text-4xl md:text-5xl font-bold mb-4 text-white"
         >
-          Regular vs <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4A017] to-amber-300">Bumper Lottery</span>
+          Regular vs <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fbbf24] to-amber-300">Bumper Lottery</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -30,9 +30,9 @@ export const PrizeComparison = () => {
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="flex-1 bg-[#003344]/40 border border-[#005F73]/30 rounded-3xl p-8 backdrop-blur-sm"
+          className="flex-1 bg-[#003344]/40 border border-[#6d28d9]/30 rounded-3xl p-8 backdrop-blur-sm"
         >
-          <div className="mb-8 border-b border-[#005F73]/30 pb-8">
+          <div className="mb-8 border-b border-[#6d28d9]/30 pb-8">
             <h3 className="text-2xl font-bold text-white mb-2">Regular Lottery</h3>
             <p className="text-[#94B8C8]">Daily & Weekly Draws</p>
             <div className="mt-6">
@@ -51,11 +51,11 @@ export const PrizeComparison = () => {
             ].map((feature, idx) => (
               <li key={idx} className="flex items-center gap-3">
                 {feature.included ? (
-                  <div className="rounded-full bg-[#005F73]/30 p-1">
+                  <div className="rounded-full bg-[#6d28d9]/30 p-1">
                     <Check className="w-4 h-4 text-[#007A94]" />
                   </div>
                 ) : (
-                  <div className="rounded-full bg-[#001F2D]/60 p-1">
+                  <div className="rounded-full bg-[#1a0b2e]/60 p-1">
                     <X className="w-4 h-4 text-[#94B8C8]/40" />
                   </div>
                 )}
@@ -72,14 +72,14 @@ export const PrizeComparison = () => {
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="flex-1 bg-gradient-to-br from-[#D4A017]/10 to-[#005F73]/10 border border-[#D4A017]/40 rounded-3xl p-8 backdrop-blur-sm relative overflow-hidden"
+          className="flex-1 bg-gradient-to-br from-[#fbbf24]/10 to-[#6d28d9]/10 border border-[#fbbf24]/40 rounded-3xl p-8 backdrop-blur-sm relative overflow-hidden"
         >
-          <div className="absolute top-0 right-0 bg-gradient-to-r from-[#D4A017] to-[#B8860B] text-[#001F2D] text-xs font-bold px-3 py-1 rounded-bl-lg">
+          <div className="absolute top-0 right-0 bg-gradient-to-r from-[#fbbf24] to-[#d97706] text-[#1a0b2e] text-xs font-bold px-3 py-1 rounded-bl-lg">
             MOST POPULAR
           </div>
 
-          <div className="mb-8 border-b border-[#D4A017]/20 pb-8 relative z-10">
-            <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#D4A017] to-amber-300 mb-2">Bumper Lottery</h3>
+          <div className="mb-8 border-b border-[#fbbf24]/20 pb-8 relative z-10">
+            <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#fbbf24] to-amber-300 mb-2">Bumper Lottery</h3>
             <p className="text-[#94B8C8]">6 Times a Year</p>
             <div className="mt-6">
               <span className="text-4xl font-extrabold text-white">₹250-₹500</span>
@@ -96,8 +96,8 @@ export const PrizeComparison = () => {
               { text: "Life-changing rewards", included: true },
             ].map((feature, idx) => (
               <li key={idx} className="flex items-center gap-3">
-                <div className="rounded-full bg-[#D4A017]/20 p-1">
-                  <Check className="w-4 h-4 text-[#D4A017]" />
+                <div className="rounded-full bg-[#fbbf24]/20 p-1">
+                  <Check className="w-4 h-4 text-[#fbbf24]" />
                 </div>
                 <span className="text-white/90 font-medium">
                   {feature.text}
@@ -107,7 +107,7 @@ export const PrizeComparison = () => {
           </ul>
 
           {/* Decorative blur */}
-          <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-[#D4A017]/15 rounded-full blur-[80px]" />
+          <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-[#fbbf24]/15 rounded-full blur-[80px]" />
         </motion.div>
       </div>
     </section>

@@ -16,12 +16,12 @@ export const FaqSection = () => {
   return (
     <section className="py-20 px-8 max-w-3xl mx-auto w-full relative z-10">
       <div className="text-center mb-16 relative">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#D4A017]/08 rounded-full blur-3xl z-0"></div>
-        <div className="inline-flex items-center justify-center p-3 bg-[#003344]/60 rounded-2xl mb-4 border border-[#D4A017]/30 text-[#D4A017] relative z-10 shadow-[0_0_15px_rgba(212,160,23,0.2)]">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#fbbf24]/08 rounded-full blur-3xl z-0"></div>
+        <div className="inline-flex items-center justify-center p-3 bg-[#003344]/60 rounded-2xl mb-4 border border-[#fbbf24]/30 text-[#fbbf24] relative z-10 shadow-[0_0_15px_rgba(212,160,23,0.2)]">
           <HelpCircle className="w-8 h-8" />
         </div>
         <h2 className="relative z-10 text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-md">
-          Got <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4A017] to-amber-300">Questions?</span>
+          Got <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fbbf24] to-amber-300">Questions?</span>
         </h2>
         <p className="relative z-10 text-[#94B8C8] text-lg">Everything you need to know about buying tickets and checking results</p>
       </div>
@@ -34,14 +34,14 @@ export const FaqSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="border border-[#005F73]/30 bg-[#003344]/30 backdrop-blur-md rounded-2xl overflow-hidden shadow-[0_4px_15px_rgba(0,0,0,0.1)] transition-all hover:border-[#D4A017]/30"
+            className="border border-[#6d28d9]/30 bg-[#003344]/30 backdrop-blur-md rounded-2xl overflow-hidden shadow-[0_4px_15px_rgba(0,0,0,0.1)] transition-all hover:border-[#fbbf24]/30"
           >
             <button
               onClick={() => setOpenIndex(openIndex === index ? null : index)}
               className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none cursor-pointer hover:bg-[#003344]/50 transition-colors group"
             >
-              <span className={`text-lg font-bold transition-colors ${openIndex === index ? "text-[#D4A017]" : "text-white group-hover:text-[#D4A017]/80"}`}>{faq.q}</span>
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${openIndex === index ? "bg-[#D4A017]/20 text-[#D4A017]" : "bg-[#005F73]/30 text-[#007A94] group-hover:bg-[#D4A017]/10"}`}>
+              <span className={`text-lg font-bold transition-colors ${openIndex === index ? "text-[#fbbf24]" : "text-white group-hover:text-[#fbbf24]/80"}`}>{faq.q}</span>
+              <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${openIndex === index ? "bg-[#fbbf24]/20 text-[#fbbf24]" : "bg-[#6d28d9]/30 text-[#007A94] group-hover:bg-[#fbbf24]/10"}`}>
                 <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${openIndex === index ? "rotate-180" : ""}`} />
               </div>
             </button>

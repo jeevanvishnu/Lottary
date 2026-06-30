@@ -20,7 +20,7 @@ export const AboutUs = () => {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold mb-6 text-white"
           >
-            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4A017] to-amber-300">Kerala Lottery</span>
+            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fbbf24] to-amber-300">Kerala Lottery</span>
           </motion.h2>
 
           <motion.div
@@ -36,7 +36,7 @@ export const AboutUs = () => {
             <p>
               Every ticket you purchase not only gives you a chance to change your life but also contributes significantly to various welfare schemes, healthcare initiatives, and infrastructure development across the state.
             </p>
-            <p className="font-semibold text-white border-l-4 border-[#D4A017] pl-4 py-1">
+            <p className="font-semibold text-white border-l-4 border-[#fbbf24] pl-4 py-1">
               "We don't just create millionaires; we build a better society."
             </p>
           </motion.div>
@@ -51,9 +51,9 @@ export const AboutUs = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 + idx * 0.1 }}
-              className="bg-[#003344]/40 border border-[#005F73]/30 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:bg-[#003344]/60 hover:border-[#D4A017]/40 transition-colors duration-300 backdrop-blur-sm group"
+              className="bg-[#003344]/40 border border-[#6d28d9]/30 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:bg-[#003344]/60 hover:border-[#fbbf24]/40 transition-colors duration-300 backdrop-blur-sm group"
             >
-              <div className="text-[#D4A017] mb-4 bg-[#D4A017]/10 p-4 rounded-full group-hover:bg-[#D4A017]/20 transition-colors">
+              <div className="text-[#fbbf24] mb-4 bg-[#fbbf24]/10 p-4 rounded-full group-hover:bg-[#fbbf24]/20 transition-colors">
                 {stat.icon}
               </div>
               <h4 className="text-3xl font-extrabold text-white mb-2">{stat.value}</h4>

@@ -25,7 +25,7 @@ const renderCard = (card: any, index: number) => (
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay: index * 0.1 }}
-    className="bg-[#022838] border border-[#005F73]/30 rounded-2xl overflow-hidden flex flex-col hover:bg-[#03344a] transition-all shadow-xl group relative"
+    className="bg-[#022838] border border-[#6d28d9]/30 rounded-2xl overflow-hidden flex flex-col hover:bg-[#03344a] transition-all shadow-xl group relative"
   >
     {/* Image Section */}
     <div className="w-full h-48 overflow-hidden relative">
@@ -35,7 +35,7 @@ const renderCard = (card: any, index: number) => (
         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
       />
       <div className="absolute bottom-3 left-4 z-20">
-        <span className="bg-[#D4A017] text-[#001F2D] text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+        <span className="bg-[#fbbf24] text-[#1a0b2e] text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
           {card.drawDate}
         </span>
       </div>
@@ -47,10 +47,10 @@ const renderCard = (card: any, index: number) => (
 
       <div className="mb-6">
         <p className="text-[#94B8C8] text-[11px] font-semibold uppercase tracking-wider mb-1">Ticket Price</p>
-        <p className="text-3xl font-black text-[#D4A017]">{card.price}</p>
+        <p className="text-3xl font-black text-[#fbbf24]">{card.price}</p>
       </div>
 
-      <Button className="w-full mt-auto bg-[#D4A017] text-[#001F2D] rounded-xl py-6 font-bold text-base shadow-none hover:bg-[#EAB308] border-none transition-colors">
+      <Button className="w-full mt-auto bg-[#fbbf24] text-[#1a0b2e] rounded-xl py-6 font-bold text-base shadow-none hover:bg-[#EAB308] border-none transition-colors">
         Buy Now
       </Button>
     </div>
@@ -62,20 +62,20 @@ export const LotteryList = () => {
     <section className="py-20 px-8 max-w-7xl mx-auto w-full relative z-10">
       <div className="text-center mb-12">
         <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-md">
-          Available <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4A017] to-amber-300">Lotteries</span>
+          Available <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fbbf24] to-amber-300">Lotteries</span>
         </h2>
         <p className="text-[#94B8C8] text-lg">Choose your ticket and stand a chance to win the jackpot!</p>
       </div>
 
       <div className="mb-12">
-        <h3 className="text-2xl font-bold text-white mb-6 border-l-4 border-[#D4A017] pl-4">Today's Draws</h3>
+        <h3 className="text-2xl font-bold text-white mb-6 border-l-4 border-[#fbbf24] pl-4">Today's Draws</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {firstSectionCards.map((card, index) => renderCard(card, index))}
         </div>
       </div>
 
       <div>
-        <h3 className="text-2xl font-bold text-white mb-6 border-l-4 border-[#005F73] pl-4">Upcoming Draws</h3>
+        <h3 className="text-2xl font-bold text-white mb-6 border-l-4 border-[#6d28d9] pl-4">Upcoming Draws</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {secondSectionCards.map((card, index) => renderCard(card, index))}
         </div>
