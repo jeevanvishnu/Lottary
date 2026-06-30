@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+
 import lottery01 from "@/assets/lottery01.jpg";
 import lottery02 from "@/assets/lottery02.jpg";
 import lottery03 from "@/assets/lottery03.jpg";
