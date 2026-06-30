@@ -1,15 +1,12 @@
-import { Box } from "lucide-react";
+import Logo from "../../assets/Logo.png";
 
 export const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-[#1a0b2e]/90 border-b border-[#6d28d9]/30">
       <div className="flex items-center justify-between px-8 py-4 max-w-7xl w-full mx-auto">
       {/* Logo */}
-      <div className="flex items-center gap-2 cursor-pointer">
-        <div className="bg-gradient-to-br from-[#fbbf24] to-[#d97706] text-[#1a0b2e] p-1 rounded-sm shadow-[0_0_12px_rgba(212,160,23,0.5)]">
-          <Box className="w-5 h-5" />
-        </div>
-        <span className="text-xl font-medium tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#fbbf24] to-amber-300">Kerala</span>
+      <div className="flex items-center cursor-pointer">
+        <img src={Logo} alt="Lottary Logo" className="h-24 md:h-32 w-auto object-contain -ml-4" />
       </div>
 
       {/* Nav Links */}
