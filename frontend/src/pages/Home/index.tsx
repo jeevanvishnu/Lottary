@@ -84,7 +84,7 @@ export const Home = () => {
         <div className="hidden lg:block absolute inset-y-0 left-0 w-64 bg-gradient-to-r from-[#0a0118] to-transparent z-10 pointer-events-none" />
 
         {/* ── TEXT & BUTTONS ── */}
-        <main className="relative z-20 flex-1 flex flex-col justify-start pt-[22vh] pb-[45vh] lg:justify-center lg:py-0 px-6 sm:px-8 max-w-7xl w-full mx-auto h-full min-h-[100svh] lg:min-h-full">
+        <main className="relative z-20 flex-1 flex flex-col justify-start pt-[8vh] pb-[45vh] lg:justify-center lg:py-0 px-6 sm:px-8 max-w-7xl w-full mx-auto h-full min-h-[100svh] lg:min-h-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
