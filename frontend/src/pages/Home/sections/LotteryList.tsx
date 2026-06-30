@@ -6,17 +6,17 @@ import img2 from "@/assets/lottery02.jpg";
 import img3 from "@/assets/lottery03.jpg";
 
 const firstSectionCards = [
-  { id: 1, name: "Mega Jackpot", price: "₹100", image: img1, drawDate: "Today, 8:00 PM" },
-  { id: 2, name: "Lucky Strike", price: "₹50", image: img2, drawDate: "Today, 4:00 PM" },
-  { id: 3, name: "Weekend Bumper", price: "₹200", image: img3, drawDate: "Today, 5:00 PM" },
-  { id: 4, name: "Daily Win", price: "₹40", image: img1, drawDate: "Today, 9:00 PM" },
+  { id: 1, name: "Mega Jackpot", price: "₹100", image: img1, drawDate: "Today, 8:00 PM", code: "MJ-7281" },
+  { id: 2, name: "Lucky Strike", price: "₹50", image: img2, drawDate: "Today, 4:00 PM", code: "LS-9342" },
+  { id: 3, name: "Weekend Bumper", price: "₹200", image: img3, drawDate: "Today, 5:00 PM", code: "WB-2849" },
+  { id: 4, name: "Daily Win", price: "₹40", image: img1, drawDate: "Today, 9:00 PM", code: "DW-1053" },
 ];
 
 const secondSectionCards = [
-  { id: 5, name: "Super Lotto", price: "₹150", image: img2, drawDate: "Tomorrow, 8:00 PM" },
-  { id: 6, name: "Fortune 500", price: "₹500", image: img3, drawDate: "Next Week, 4:00 PM" },
-  { id: 7, name: "Golden Ticket", price: "₹250", image: img1, drawDate: "Sunday, 5:00 PM" },
-  { id: 8, name: "Quick Pick", price: "₹20", image: img2, drawDate: "Tomorrow, 9:00 PM" },
+  { id: 5, name: "Super Lotto", price: "₹150", image: img2, drawDate: "Tomorrow, 8:00 PM", code: "SL-4492" },
+  { id: 6, name: "Fortune 500", price: "₹500", image: img3, drawDate: "Next Week, 4:00 PM", code: "FT-5001" },
+  { id: 7, name: "Golden Ticket", price: "₹250", image: img1, drawDate: "Sunday, 5:00 PM", code: "GT-7777" },
+  { id: 8, name: "Quick Pick", price: "₹20", image: img2, drawDate: "Tomorrow, 9:00 PM", code: "QP-1234" },
 ];
 
 const renderCard = (card: any, index: number) => (
@@ -25,7 +25,7 @@ const renderCard = (card: any, index: number) => (
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay: index * 0.1 }}
-    className="bg-[#022838] border border-[#6d28d9]/30 rounded-2xl overflow-hidden flex flex-col hover:bg-[#03344a] transition-all shadow-xl group relative"
+    className="bg-gray-50 border border-gray-200 rounded-t-2xl overflow-hidden flex flex-col hover:bg-white hover:shadow-2xl transition-all shadow-xl group relative"
   >
     {/* Image Section */}
     <div className="w-full h-48 overflow-hidden relative">
@@ -43,11 +43,14 @@ const renderCard = (card: any, index: number) => (
 
     {/* Content Section */}
     <div className="p-6 flex flex-col flex-1 relative z-20">
-      <h3 className="text-xl font-bold text-white mb-6">{card.name}</h3>
+      <div className="flex justify-between items-start mb-6 gap-2">
+        <h3 className="text-xl font-bold text-[#1a0b2e] leading-tight">{card.name}</h3>
+        <span className="text-[10px] font-bold text-[#d97706] bg-[#d97706]/10 px-2 py-1 rounded border border-[#d97706]/20 whitespace-nowrap mt-1">#{card.code}</span>
+      </div>
 
       <div className="mb-6">
-        <p className="text-[#94B8C8] text-[11px] font-semibold uppercase tracking-wider mb-1">Ticket Price</p>
-        <p className="text-3xl font-black text-[#fbbf24]">{card.price}</p>
+        <p className="text-gray-500 text-[11px] font-semibold uppercase tracking-wider mb-1">Ticket Price</p>
+        <p className="text-3xl font-black text-[#d97706]">{card.price}</p>
       </div>
 
       <Button className="w-full mt-auto bg-[#fbbf24] text-[#1a0b2e] rounded-xl py-6 font-bold text-base shadow-none hover:bg-[#EAB308] border-none transition-colors">
@@ -59,26 +62,28 @@ const renderCard = (card: any, index: number) => (
 
 export const LotteryList = () => {
   return (
-    <section className="py-20 px-8 max-w-7xl mx-auto w-full relative z-10">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-md">
-          Available <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fbbf24] to-amber-300">Lotteries</span>
-        </h2>
-        <p className="text-[#94B8C8] text-lg">Choose your ticket and stand a chance to win the jackpot!</p>
-      </div>
+    <section id="lottery-list" className="py-20 px-8 w-full relative z-10 bg-white">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#1a0b2e] drop-shadow-sm">
+            Available <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d97706] to-[#b45309]">Lotteries</span>
+          </h2>
+          <p className="text-gray-600 text-lg">Choose your ticket and stand a chance to win the jackpot!</p>
+        </div>
 
       <div className="mb-12">
-        <h3 className="text-2xl font-bold text-white mb-6 border-l-4 border-[#fbbf24] pl-4">Today's Draws</h3>
+        <h3 className="text-2xl font-bold text-[#1a0b2e] mb-6 border-l-4 border-[#d97706] pl-4">Today's Draws</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {firstSectionCards.map((card, index) => renderCard(card, index))}
         </div>
       </div>
 
       <div>
-        <h3 className="text-2xl font-bold text-white mb-6 border-l-4 border-[#6d28d9] pl-4">Upcoming Draws</h3>
+        <h3 className="text-2xl font-bold text-[#1a0b2e] mb-6 border-l-4 border-[#6d28d9] pl-4">Upcoming Draws</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {secondSectionCards.map((card, index) => renderCard(card, index))}
         </div>
+      </div>
       </div>
     </section>
   );

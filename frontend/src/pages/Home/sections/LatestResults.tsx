@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export const LatestResults = () => {
   return (
-    <section className="py-20 px-8 max-w-7xl mx-auto w-full relative z-10">
+    <section id="result" className="py-20 px-8 max-w-7xl mx-auto w-full relative z-10">
       <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
         <div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-md">

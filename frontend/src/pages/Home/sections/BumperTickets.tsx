@@ -92,40 +92,46 @@ export const BumperTickets = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="group relative rounded-2xl overflow-hidden bg-[#003344] border border-[#6d28d9]/40 hover:border-[#fbbf24]/50 transition-all duration-300 flex flex-col shadow-xl"
+            className="group relative overflow-hidden bg-white/[0.03] backdrop-blur-xl border border-white/10 hover:border-[#fbbf24]/50 transition-all duration-500 flex flex-col shadow-[0_8px_32px_rgba(0,0,0,0.4)] hover:shadow-[0_16px_48px_rgba(251,191,36,0.2)] hover:-translate-y-2"
           >
+            {/* Shimmer effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 z-30 pointer-events-none" />
+            
             <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${ticket.color} z-20`} />
 
-            <div className="relative h-48 w-full overflow-hidden">
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300 z-10" />
+            <div className="relative h-56 w-full overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#003344] via-black/20 to-transparent z-10 opacity-80" />
               <img
                 src={ticket.image}
                 alt={ticket.title}
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 filter group-hover:brightness-110"
               />
-              <div className="absolute top-4 right-4 z-20 bg-[#1a0b2e]/80 backdrop-blur-md rounded-lg px-3 py-1.5 border border-[#fbbf24]/30 text-center shadow-lg">
-                <p className="text-[10px] font-medium text-[#94B8C8] uppercase tracking-widest mb-0.5">Price</p>
-                <p className="font-bold text-[#fbbf24] leading-none">{ticket.ticketPrice}</p>
+              <div className="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur-md px-4 py-2 border border-white/10 shadow-lg group-hover:border-[#fbbf24]/50 transition-colors duration-300">
+                <p className="text-[10px] font-medium text-white/70 uppercase tracking-[0.2em] mb-1">Price</p>
+                <p className="font-bold text-[#fbbf24] leading-none text-lg">{ticket.ticketPrice}</p>
               </div>
             </div>
 
-            <div className="p-6 flex-1 flex flex-col relative">
-              <div className="mb-4">
-                <p className="text-xs font-semibold text-[#94B8C8] mb-2 tracking-wide uppercase">{ticket.drawDate}</p>
-                <h3 className="text-xl font-bold text-white mb-2 leading-tight group-hover:text-[#fbbf24] transition-colors">{ticket.title}</h3>
+            <div className="p-8 flex-1 flex flex-col relative z-20 bg-gradient-to-b from-[#003344]/50 to-transparent">
+              <div className="mb-6">
+                <p className="text-xs font-semibold text-[#fbbf24] mb-3 tracking-[0.15em] uppercase flex items-center gap-2">
+                  <span className="w-4 h-[1px] bg-[#fbbf24]"></span>
+                  {ticket.drawDate}
+                </p>
+                <h3 className="text-2xl font-bold text-white mb-2 leading-tight group-hover:text-[#fbbf24] transition-colors">{ticket.title}</h3>
               </div>
 
-              <div className="mt-auto pt-5 border-t border-[#6d28d9]/30 flex items-center justify-between">
+              <div className="mt-auto pt-6 border-t border-white/10 flex items-center justify-between group-hover:border-white/20 transition-colors duration-300">
                 <div>
-                  <p className="text-[11px] font-semibold text-[#94B8C8] uppercase tracking-wider mb-1">First Prize</p>
-                  <p className={`text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r ${ticket.color}`}>
+                  <p className="text-[10px] font-medium text-white/50 uppercase tracking-[0.2em] mb-1.5">First Prize</p>
+                  <p className={`text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r ${ticket.color} drop-shadow-sm`}>
                     {ticket.prize}
                   </p>
                 </div>
 
-                <Button className="rounded-full bg-gradient-to-r from-[#fbbf24] to-[#d97706] text-[#1a0b2e] hover:from-amber-400 hover:to-[#fbbf24] font-bold px-6 shadow-[0_0_15px_rgba(212,160,23,0.3)] hover:shadow-[0_0_20px_rgba(212,160,23,0.5)] transition-all border-none">
+                <button className="relative overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 text-white font-bold h-12 px-6 text-sm uppercase tracking-wider hover:bg-[#fbbf24] hover:text-black hover:border-[#fbbf24] transition-all duration-300 shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(251,191,36,0.4)]">
                   Buy Now
-                </Button>
+                </button>
               </div>
             </div>
           </motion.div>
