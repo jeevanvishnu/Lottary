@@ -33,28 +33,7 @@ export const Home = () => {
         <div className="lg:hidden absolute top-[15%] left-1/2 -translate-x-1/2 w-[80vw] h-[80vw] bg-purple-600/15 rounded-full blur-[100px] pointer-events-none z-0" />
         <div className="lg:hidden absolute bottom-[5%] left-1/2 -translate-x-1/2 w-[90vw] h-[40vh] bg-gradient-to-t from-[#6d28d9]/15 via-[#d97706]/15 to-transparent rounded-full blur-[80px] pointer-events-none z-0" />
 
-        {/* ── MOBILE IMAGE: Beautifully integrated at the bottom ── */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.3 }}
-          className="lg:hidden absolute bottom-0 left-0 w-full h-[45vh] z-0 pointer-events-none"
-        >
-          <div
-            className="w-full h-full"
-            style={{
-              maskImage: 'radial-gradient(ellipse at bottom, black 40%, transparent 75%)',
-              WebkitMaskImage: 'radial-gradient(ellipse at bottom, black 40%, transparent 75%)',
-            }}
-          >
-            <img
-              src={heroImg}
-              alt="Lord Murugan"
-              className="w-full h-full object-contain object-bottom opacity-80 mix-blend-screen"
-              style={{ filter: 'drop-shadow(0 0 35px rgba(109,40,217,0.5))' }}
-            />
-          </div>
-        </motion.div>
+        {/* Mobile image is rendered inside the main content container for normal flow on mobile view */}
 
         {/* Background Image Container for Desktop */}
         <motion.div
@@ -83,13 +62,13 @@ export const Home = () => {
         <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#0a0118] to-transparent z-10 pointer-events-none" />
         <div className="hidden lg:block absolute inset-y-0 left-0 w-64 bg-gradient-to-r from-[#0a0118] to-transparent z-10 pointer-events-none" />
 
-        {/* ── TEXT & BUTTONS ── */}
-        <main className="relative z-20 flex-1 flex flex-col justify-start pt-[8vh] pb-[45vh] lg:justify-center lg:py-0 px-6 sm:px-8 max-w-7xl w-full mx-auto h-full min-h-[100svh] lg:min-h-full">
+        {/* ── TEXT, MOBILE IMAGE, AND BUTTONS ── */}
+        <main className="relative z-20 flex-1 flex flex-col justify-start lg:justify-center pt-[6vh] pb-8 lg:py-0 px-6 sm:px-8 max-w-7xl w-full mx-auto min-h-[100svh] lg:min-h-full items-center lg:items-start">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-2xl text-center lg:text-left mx-auto lg:mx-0 px-2 sm:px-0"
+            className="max-w-2xl text-center lg:text-left mx-auto lg:mx-0 px-2 sm:px-0 flex flex-col items-center lg:items-start w-full"
           >
             {/* Decorative pill badge */}
             <motion.div
@@ -102,20 +81,23 @@ export const Home = () => {
               <span className="text-[#e9d5ff] text-xs sm:text-sm font-bold tracking-wider uppercase">Kerala Official Lottery</span>
             </motion.div>
 
-            <h1 className="font-extrabold leading-[1.15] tracking-tight mb-4 text-white drop-shadow-2xl flex flex-col gap-1">
-              <span className="text-[2.5rem] sm:text-6xl lg:text-[4rem] leading-none">Today's Ticket,</span>
-              <span className="text-[2.5rem] sm:text-6xl lg:text-[4rem] text-transparent bg-clip-text bg-gradient-to-r from-[#fbbf24] via-amber-300 to-[#fffbeb] leading-none pb-2 filter drop-shadow-[0_0_15px_rgba(251,191,36,0.3)]">Tomorrow's Dream</span>
-              <span className="text-xl sm:text-3xl lg:text-4xl text-[#d8b4fe] mt-2 font-medium">with Kerala Lottery</span>
+            <h1 className="font-extrabold leading-[1.15] tracking-tight mb-4 text-white drop-shadow-2xl flex flex-col gap-1 items-center lg:items-start text-center lg:text-left w-full">
+              <span className="text-[2rem] sm:text-6xl lg:text-[4rem] leading-none">Today's Ticket,</span>
+              <span className="text-[2.2rem] sm:text-6xl lg:text-[4rem] text-transparent bg-clip-text bg-gradient-to-r from-[#fbbf24] via-amber-300 to-[#fffbeb] leading-none pb-2 filter drop-shadow-[0_0_15px_rgba(251,191,36,0.3)]">
+                Tomorrow's Dream
+              </span>
+              <span className="text-lg sm:text-3xl lg:text-4xl text-[#d8b4fe] mt-2 font-medium">with Kerala Lottery</span>
             </h1>
 
-            <p className="text-sm sm:text-lg text-gray-300/90 mb-8 max-w-[280px] sm:max-w-md mx-auto lg:mx-0 leading-relaxed font-normal">
+            <p className="text-sm sm:text-lg text-gray-300/90 mb-6 lg:mb-8 max-w-[280px] sm:max-w-md mx-auto lg:mx-0 leading-relaxed font-normal">
               Play today's draw, check live results, and win big securely.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-5 w-full sm:w-auto px-4 sm:px-0">
+            {/* Buttons — normal flow on desktop only */}
+            <div className="hidden lg:flex flex-row items-center justify-start gap-5">
               <Button
                 size="lg"
-                className="w-full sm:w-auto h-14 bg-gradient-to-r from-[#fbbf24] to-[#f59e0b] text-[#1a0b2e] hover:from-amber-400 hover:to-[#fbbf24] rounded-full px-10 text-lg font-bold shadow-[0_8px_25px_-5px_rgba(251,191,36,0.5)] cursor-pointer border-none transition-all hover:scale-105 active:scale-95"
+                className="w-auto h-14 bg-gradient-to-r from-[#fbbf24] to-[#f59e0b] text-[#1a0b2e] hover:from-amber-400 hover:to-[#fbbf24] rounded-full px-10 text-lg font-bold shadow-[0_8px_25px_-5px_rgba(251,191,36,0.5)] cursor-pointer border-none transition-all hover:scale-105 active:scale-95"
                 onClick={() => document.getElementById('lottery-list')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Buy Now
@@ -123,7 +105,7 @@ export const Home = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="w-full sm:w-auto h-14 rounded-full px-8 text-lg border-2 border-[#8b5cf6]/60 text-[#e9d5ff] hover:bg-[#8b5cf6]/20 hover:text-white font-bold backdrop-blur-md cursor-pointer shadow-[0_8px_25px_-5px_rgba(139,92,246,0.25)] transition-all hover:scale-105 active:scale-95 bg-[#0a0118]/40 flex items-center justify-center gap-3"
+                className="w-auto h-14 rounded-full px-8 text-lg border-2 border-[#8b5cf6]/60 text-[#e9d5ff] hover:bg-[#8b5cf6]/20 hover:text-white font-bold backdrop-blur-md cursor-pointer shadow-[0_8px_25px_-5px_rgba(139,92,246,0.25)] transition-all hover:scale-105 active:scale-95 bg-[#0a0118]/40 flex items-center justify-center gap-3"
                 onClick={() => window.location.href = 'tel:9345478572'}
               >
                 <Phone className="w-5 h-5 text-[#fbbf24]" />
@@ -131,6 +113,49 @@ export const Home = () => {
               </Button>
             </div>
           </motion.div>
+
+          {/* Mobile Image (inline normal flow, centered) */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2, delay: 0.3 }}
+            className="lg:hidden w-full flex justify-center my-4 z-10 pointer-events-none"
+          >
+            <div
+              className="w-[120%] max-w-[360px] h-[38vh] flex justify-center items-center"
+              style={{
+                maskImage: 'radial-gradient(ellipse 75% 75% at 50% 50%, black 40%, transparent 80%)',
+                WebkitMaskImage: 'radial-gradient(ellipse 75% 75% at 50% 50%, black 40%, transparent 80%)',
+              }}
+            >
+              <img
+                src={heroImg}
+                alt="Lord Murugan"
+                className="w-full h-full object-contain object-center opacity-95 mix-blend-screen scale-[1.15]"
+                style={{ filter: 'drop-shadow(0 0 35px rgba(109,40,217,0.5))' }}
+              />
+            </div>
+          </motion.div>
+
+          {/* Mobile Buttons (inline normal flow, pushed to bottom with mt-auto if there is space) */}
+          <div className="lg:hidden w-full max-w-sm flex flex-col gap-3 z-30 mt-auto sm:mt-4">
+            <Button
+              size="lg"
+              className="w-full h-14 bg-gradient-to-r from-[#fbbf24] to-[#f59e0b] text-[#1a0b2e] hover:from-amber-400 hover:to-[#fbbf24] rounded-full px-10 text-lg font-bold shadow-[0_8px_25px_-5px_rgba(251,191,36,0.5)] cursor-pointer border-none transition-all active:scale-95"
+              onClick={() => document.getElementById('lottery-list')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Buy Now
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="w-full h-14 rounded-full px-8 text-lg border-2 border-[#8b5cf6]/60 text-[#e9d5ff] hover:bg-[#8b5cf6]/20 hover:text-white font-bold backdrop-blur-md cursor-pointer shadow-[0_8px_25px_-5px_rgba(139,92,246,0.25)] transition-all active:scale-95 bg-[#0a0118]/40 flex items-center justify-center gap-3"
+              onClick={() => window.location.href = 'tel:9345478572'}
+            >
+              <Phone className="w-5 h-5 text-[#fbbf24]" />
+              93454 78572
+            </Button>
+          </div>
         </main>
       </div>
 
