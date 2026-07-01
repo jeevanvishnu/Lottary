@@ -20,7 +20,7 @@ export const AboutUs = () => {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold mb-6 text-white"
           >
-            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fbbf24] to-amber-300">Kerala Bhagyakuri</span>
+            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fbbf24] to-amber-300">Us</span>
           </motion.h2>
 
           <motion.div
@@ -31,13 +31,10 @@ export const AboutUs = () => {
             className="space-y-6 text-[#94B8C8] text-lg leading-relaxed"
           >
             <p>
-              Established in 1967, the Kerala State Lottery Department was the first of its kind in India. What started as an innovative idea to provide employment and supplement government finance has grown into a phenomenon that touches millions of lives.
+              We are a Kerala government-authorized agency and we are a wholesale and retailer. We have more than 50,000 customers all over India. Sri Senthil Vel Lottery is one of the leading Kerala lottery agents in Palakkad, providing trusted lottery services since our establishment.
             </p>
             <p>
-              Every ticket you purchase not only gives you a chance to change your life but also contributes significantly to various welfare schemes, healthcare initiatives, and infrastructure development across the state.
-            </p>
-            <p className="font-semibold text-white border-l-4 border-[#fbbf24] pl-4 py-1">
-              "We don't just create millionaires; we build a better society."
+              As an authorized agency, we sell Kerala State Lottery tickets which is a government lottery founded in 1967 under the Kerala government's lottery department. All Indian people can buy Kerala government lottery tickets through us and win prizes with their luck.
             </p>
           </motion.div>
         </div>
