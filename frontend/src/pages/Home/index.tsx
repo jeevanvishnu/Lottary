@@ -78,7 +78,7 @@ export const Home = () => {
               className="inline-flex items-center gap-2 bg-[#6d28d9]/20 border border-[#a78bfa]/30 rounded-full px-5 py-2 mb-6 backdrop-blur-md shadow-[0_0_15px_rgba(109,40,217,0.2)]"
             >
               <span className="w-2 h-2 rounded-full bg-[#fbbf24] animate-pulse shadow-[0_0_8px_rgba(251,191,36,0.8)]" />
-              <span className="text-[#e9d5ff] text-xs sm:text-sm font-bold tracking-wider uppercase">Kerala Official Lottery</span>
+              <span className="text-[#e9d5ff] text-xs sm:text-sm font-bold tracking-wider uppercase">Kerala Bhagyakuri (State Lotteries)</span>
             </motion.div>
 
             <h1 className="font-extrabold leading-[1.15] tracking-tight mb-4 text-white drop-shadow-2xl flex flex-col gap-1 items-center lg:items-start text-center lg:text-left w-full">

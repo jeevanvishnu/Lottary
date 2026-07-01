@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, HelpCircle } from "lucide-react";
 
 const faqs = [
-  { q: "How do I buy a lottery ticket online?", a: "Choose your preferred ticket from the 'Available Lotteries' section, click 'Buy Ticket Now', and complete your secure payment. You will receive an instant digital copy of your official ticket." },
-  { q: "Where can I check the daily draw results?", a: "You can find all results in our 'Latest Results' section. We publish the winning numbers immediately after the official 3:00 PM draw. You can also download the official PDF result." },
-  { q: "Is it safe to pay online?", a: "Absolutely. We use bank-grade encryption and standard UPI/Card payment gateways to ensure your transactions are 100% secure and protected." },
-  { q: "What happens if I win the jackpot?", a: "For small prizes, the amount is directly credited to your bank account. For major prizes (like the bumper or ₹75 Lakhs), we assist you in submitting the original physical ticket to the State Lottery Directorate." },
-  { q: "Are these official Kerala Lottery tickets?", a: "Yes, we are an authorized seller. Every digital ticket you receive has a verifiable serial number corresponding to a physical paper ticket kept securely in our vault." },
+  { q: "Can I buy Kerala lottery tickets online?", a: "The Kerala Government strictly prohibits official online sales. We operate as an authorized retail agent. When you order through our WhatsApp service, you are purchasing a physical paper ticket. We securely hold it for you and send a scanned digital copy for your reference." },
+  { q: "Where can I check the daily draw results?", a: "You can find all results in our 'Latest Results' section. We publish the winning numbers immediately after the official 3:00 PM draw in Thiruvananthapuram. You can also verify them on the official statelottery.kerala.gov.in website." },
+  { q: "How do I claim my prize money?", a: "For prizes up to ₹5,000, the amount can be claimed instantly at our shop, and we can transfer it to your account. For larger prizes, the original physical ticket must be surrendered to a bank or a government lottery office with ID proof, and we will physically hand over the ticket or assist you with this process." },
+  { q: "Is it safe to pay online?", a: "Absolutely. We use secure UPI/Card payment methods to ensure your transactions for purchasing the physical tickets are 100% safe." },
+  { q: "Are these official Kerala Bhagyakuri tickets?", a: "Yes, Sri Senthil Vel Lottery is an authorized seller of authentic Kerala State Lotteries (Bhagyakuri). Every scanned ticket you receive corresponds to a genuine physical paper ticket with a valid serial number." },
 ];
 
 export const FaqSection = () => {

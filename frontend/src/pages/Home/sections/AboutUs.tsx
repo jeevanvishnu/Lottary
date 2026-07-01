@@ -20,7 +20,7 @@ export const AboutUs = () => {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold mb-6 text-white"
           >
-            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fbbf24] to-amber-300">Kerala Lottery</span>
+            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fbbf24] to-amber-300">Kerala Bhagyakuri</span>
           </motion.h2>
 
           <motion.div
