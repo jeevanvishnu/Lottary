@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { LotteryList } from "./sections/LotteryList";
-import { HowItWorks } from "./sections/HowItWorks";
+import { WhatWeOffer } from "./sections/WhatWeOffer";
 import { LatestResults } from "./sections/LatestResults";
 import { WhyChooseUs } from "./sections/WhyChooseUs";
 import { BumperTickets } from "./sections/BumperTickets";
@@ -82,11 +82,11 @@ export const Home = () => {
             </motion.div>
 
             <h1 className="font-extrabold leading-[1.15] tracking-tight mb-4 text-white drop-shadow-2xl flex flex-col gap-1 items-center lg:items-start text-center lg:text-left w-full">
-              <span className="text-[2rem] sm:text-6xl lg:text-[4rem] leading-none">Today's Ticket,</span>
-              <span className="text-[2.2rem] sm:text-6xl lg:text-[4rem] text-transparent bg-clip-text bg-gradient-to-r from-[#fbbf24] via-amber-300 to-[#fffbeb] leading-none pb-2 filter drop-shadow-[0_0_15px_rgba(251,191,36,0.3)]">
-                Tomorrow's Dream
+              <span className="text-[2rem] sm:text-5xl lg:text-[3.5rem] leading-none">Welcome to</span>
+              <span className="text-[2.2rem] sm:text-5xl lg:text-[3.5rem] text-transparent bg-clip-text bg-gradient-to-r from-[#fbbf24] via-amber-300 to-[#fffbeb] leading-tight pb-2 filter drop-shadow-[0_0_15px_rgba(251,191,36,0.3)]">
+                Sri Senthil Vel Lottery Agency
               </span>
-              <span className="text-lg sm:text-3xl lg:text-4xl text-[#d8b4fe] mt-2 font-medium">with Kerala Lottery</span>
+              <span className="text-lg sm:text-3xl lg:text-3xl text-[#d8b4fe] mt-2 font-medium">Kerala trusted lottery shop</span>
             </h1>
 
             <p className="text-sm sm:text-lg text-gray-300/90 mb-6 lg:mb-8 max-w-[280px] sm:max-w-md mx-auto lg:mx-0 leading-relaxed font-normal">
@@ -161,7 +161,7 @@ export const Home = () => {
 
       <LotteryList />
       <LatestResults />
-      <HowItWorks />
+      <WhatWeOffer />
       <BumperTickets />
       <PrizeComparison />
       <AboutUs />
