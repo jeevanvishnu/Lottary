@@ -84,7 +84,7 @@ export const Home = () => {
             <h1 className="font-extrabold leading-[1.15] tracking-tight mb-4 text-white drop-shadow-2xl flex flex-col gap-1 items-center lg:items-start text-center lg:text-left w-full">
               <span className="text-[2rem] sm:text-5xl lg:text-[3.5rem] leading-none">Welcome to</span>
               <span className="text-[2.2rem] sm:text-5xl lg:text-[3.5rem] text-transparent bg-clip-text bg-gradient-to-r from-[#fbbf24] via-amber-300 to-[#fffbeb] leading-tight pb-2 filter drop-shadow-[0_0_15px_rgba(251,191,36,0.3)]">
-                Sri Senthil Vel Lottery Agency
+                Sri Senthil Vel Lottery
               </span>
               <span className="text-lg sm:text-3xl lg:text-3xl text-[#d8b4fe] mt-2 font-medium">Kerala trusted lottery shop</span>
             </h1>
