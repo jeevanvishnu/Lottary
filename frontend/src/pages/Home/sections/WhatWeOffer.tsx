@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MessageCircle, Calendar, Trophy, HandHeart, FileCheck, ShieldCheck, Zap, CheckCircle2, Gift, Coins } from "lucide-react";
+import { MessageCircle, Calendar, Trophy, FileCheck, ShieldCheck, Zap, CheckCircle2, Gift, Coins } from "lucide-react";
 
 const offers = [
   { icon: MessageCircle, title: "Book Tickets Online Through WhatsApp" },

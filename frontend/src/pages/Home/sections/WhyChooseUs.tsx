@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CheckCircle2, ShieldCheck, Lock, UserCheck, Phone, Mail, MapPin } from "lucide-react";
+import { CheckCircle2, ShieldCheck, Lock, UserCheck, Phone, MapPin } from "lucide-react";
 
 const features = [
   { icon: CheckCircle2, title: "Authorized Seller", desc: "We are an officially recognized and licensed lottery retailer with verified credentials." },
@@ -61,7 +61,7 @@ export const WhyChooseUs = () => {
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Call Us Now</p>
-                  <p className="text-[#1a0b2e] font-bold text-lg">+91 93454 78572</p>
+                  <p className="text-[#1a0b2e] font-bold text-lg whitespace-nowrap">+91 93454 78572</p>
                 </div>
               </a>
               

@@ -1,9 +1,32 @@
+import { useState, useEffect } from "react";
 import { Header } from "./components/layout/Header";
 import { Home } from "./pages/Home";
+import { AdminLogin } from "./pages/Admin/AdminLogin";
 
 export const App = () => {
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+  useEffect(() => {
+    const handleLocationChange = () => {
+      setCurrentPath(window.location.pathname);
+    };
+
+    window.addEventListener("popstate", handleLocationChange);
+    
+    // Custom listener in case we trigger manual navigation updates
+    window.addEventListener("navigate", handleLocationChange);
+
+    return () => {
+      window.removeEventListener("popstate", handleLocationChange);
+      window.removeEventListener("navigate", handleLocationChange);
+    };
+  }, []);
+
+  const isAdminRoute = currentPath === "/admin" || currentPath === "/admin/";
+
   return (
     <div className="relative min-h-screen bg-[#1a0b2e] text-white font-sans overflow-clip">
+      {/* Dynamic background glow */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-[#1a0b2e]/95 via-[#6d28d9]/30 to-[#1a0b2e]/95 z-10" />
         <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#fbbf24]/15 blur-[120px] z-0" />
@@ -11,8 +34,14 @@ export const App = () => {
       </div>
 
       <div className="relative z-10 flex flex-col min-h-screen">
-        <Header />
-        <Home />
+        {isAdminRoute ? (
+          <AdminLogin />
+        ) : (
+          <>
+            <Header />
+            <Home />
+          </>
+        )}
       </div>
     </div>
   );
