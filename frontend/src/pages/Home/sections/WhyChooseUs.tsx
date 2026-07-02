@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CheckCircle2, ShieldCheck, Lock, UserCheck, Phone, Mail, MapPin } from "lucide-react";
+import { CheckCircle2, ShieldCheck, Lock, UserCheck, Phone, MapPin } from "lucide-react";
 
 const features = [
   { icon: CheckCircle2, title: "Authorized Seller", desc: "We are an officially recognized and licensed lottery retailer with verified credentials." },
