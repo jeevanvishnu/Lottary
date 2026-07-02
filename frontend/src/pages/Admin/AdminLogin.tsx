@@ -445,7 +445,10 @@ export const AdminLogin = () => {
                     </div>
                     <div className="flex flex-col gap-2">
                       <label className="text-xs font-bold text-gray-300 uppercase tracking-wide">Schedule (Date & Time)</label>
-                      <input type="datetime-local" required className="bg-[#000000]/30 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-[#fbbf24] focus:ring-1 focus:ring-[#fbbf24] transition-all" />
+                      <div className="grid grid-cols-2 gap-2">
+                        <input type="date" required className="bg-[#000000]/30 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-[#fbbf24] focus:ring-1 focus:ring-[#fbbf24] transition-all" />
+                        <input type="time" required className="bg-[#000000]/30 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-[#fbbf24] focus:ring-1 focus:ring-[#fbbf24] transition-all" />
+                      </div>
                     </div>
                     <div className="flex flex-col gap-2">
                       <label className="text-xs font-bold text-gray-300 uppercase tracking-wide">Jackpot Amount (₹)</label>
