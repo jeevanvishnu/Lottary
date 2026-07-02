@@ -14,12 +14,18 @@ export const AdminRoot = () => {
 
   useEffect(() => {
     const savedAdmin = localStorage.getItem("adminUser");
-    if (savedAdmin) {
+    const token = localStorage.getItem("admin_token");
+    if (savedAdmin && token) {
       try {
         setAdminUser(JSON.parse(savedAdmin));
       } catch (e) {
         localStorage.removeItem("adminUser");
+        localStorage.removeItem("admin_token");
       }
+    } else {
+      localStorage.removeItem("adminUser");
+      localStorage.removeItem("admin_token");
+      setAdminUser(null);
     }
   }, []);
 
