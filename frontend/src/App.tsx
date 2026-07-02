@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Header } from "./components/layout/Header";
 import { Home } from "./pages/Home";
-import { AdminLogin } from "./pages/Admin/AdminLogin";
+import { AdminRoot } from "./pages/Admin";
+import { Toaster } from "react-hot-toast";
 
 export const App = () => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -35,7 +36,7 @@ export const App = () => {
 
       <div className="relative z-10 flex flex-col min-h-screen">
         {isAdminRoute ? (
-          <AdminLogin />
+          <AdminRoot />
         ) : (
           <>
             <Header />
@@ -43,6 +44,7 @@ export const App = () => {
           </>
         )}
       </div>
+      <Toaster position="top-right" />
     </div>
   );
 };
