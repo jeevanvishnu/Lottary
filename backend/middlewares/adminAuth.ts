@@ -11,7 +11,7 @@ export interface AuthenticatedRequest extends Request {
 
 export const verifyAdmin = async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     try {
-        const token = req.cookies.admin_token;
+        const token = req.cookies.admin_token || req.headers.authorization?.split(" ")[1];
         if (!token) {
             return res.status(401).json({ message: "Unauthorized: No token provided" });
         }

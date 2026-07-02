@@ -25,6 +25,7 @@ export const AdminRoot = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("adminUser");
+    localStorage.removeItem("admin_token");
     setAdminUser(null);
     toast.success("Logged out successfully");
   };

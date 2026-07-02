@@ -55,6 +55,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ setAdminUser }) => {
       };
 
       localStorage.setItem("adminUser", JSON.stringify(loggedInUser));
+      localStorage.setItem("admin_token", data.token);
       setAdminUser(loggedInUser);
       toast.success("Login successful!");
       setEmail("");
