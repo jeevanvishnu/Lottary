@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Loader2, Calendar, Clock, Ticket, Trophy, Eye, X } from "lucide-react";
+import { axiosInstance } from "@/lib/axios";
 
 export const LotteryList = () => {
   const [lotteries, setLotteries] = useState<any[]>([]);
@@ -23,11 +24,9 @@ export const LotteryList = () => {
   useEffect(() => {
     const fetchLotteries = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/admin/lotteries");
-        const data = await response.json();
-        if (response.ok) {
-          setLotteries(data.lotteries);
-        }
+        const response = await axiosInstance.get("/admin/lotteries");
+        const data = response.data;
+        setLotteries(data.lotteries);
       } catch (error) {
         console.error("Error fetching lotteries:", error);
       } finally {

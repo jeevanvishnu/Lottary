@@ -4,6 +4,7 @@ import { Mail, Lock, Eye, EyeOff, ShieldAlert, Loader2 } from "lucide-react";
 import Logo from "@/assets/Logo.png";
 import { Button } from "@/components/ui/button";
 import { toast } from "react-hot-toast";
+import { axiosInstance } from "@/lib/axios";
 import { type AdminUser } from "./index";
 
 interface AdminLoginProps {
@@ -44,20 +45,8 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ setAdminUser }) => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/admin/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({ email, password }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || "Something went wrong. Please try again.");
-      }
+      const response = await axiosInstance.post("/admin/login", { email, password });
+      const data = response.data;
 
       // Successful login
       const loggedInUser = {
@@ -71,14 +60,14 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ setAdminUser }) => {
       setEmail("");
       setPassword("");
     } catch (err: any) {
-      setError(err.message || "Failed to connect to the backend server. Make sure it is running.");
+      setError(err.response?.data?.message || err.message || "Failed to connect to the backend server. Make sure it is running.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <main className="min-h-[85vh] flex items-center justify-center px-4 relative overflow-hidden bg-gradient-to-br from-[#0a0118] via-[#1a0b2e] to-[#070114]">
+    <main className="min-h-screen w-full flex items-center justify-center px-4 relative overflow-hidden bg-transparent">
       {/* Dynamic Background Effects */}
       <div className="absolute top-[20%] left-[-10%] w-[350px] h-[350px] rounded-full bg-[#fbbf24]/5 blur-[100px] pointer-events-none z-0" />
       <div className="absolute bottom-[10%] right-[-10%] w-[450px] h-[450px] rounded-full bg-purple-900/20 blur-[120px] pointer-events-none z-0" />

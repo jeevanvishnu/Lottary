@@ -29,6 +29,20 @@ export const AdminRoot = () => {
     toast.success("Logged out successfully");
   };
 
+  useEffect(() => {
+    if (adminUser) {
+      if (window.location.pathname === "/admin/login" || window.location.pathname === "/admin" || window.location.pathname === "/admin/") {
+         window.history.pushState({}, "", "/admin/dashboard");
+         window.dispatchEvent(new Event("navigate"));
+      }
+    } else {
+      if (window.location.pathname.startsWith("/admin") && window.location.pathname !== "/admin/login") {
+         window.history.pushState({}, "", "/admin/login");
+         window.dispatchEvent(new Event("navigate"));
+      }
+    }
+  }, [adminUser]);
+
   if (adminUser) {
     return <AdminDashboard adminUser={adminUser} onLogout={handleLogout} />;
   }

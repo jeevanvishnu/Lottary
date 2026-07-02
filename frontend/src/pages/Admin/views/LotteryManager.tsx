@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { PlusCircle, X, Loader2, Edit, Trash2, FileText, IndianRupee, Calendar, Clock, Trophy, UploadCloud, Image as ImageIcon, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "react-hot-toast";
+import { axiosInstance } from "@/lib/axios";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -152,14 +153,10 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
   const fetchLotteries = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:5000/api/admin/lotteries?page=${page}&limit=${limit}`, {
-        credentials: "include"
-      });
-      const data = await response.json();
-      if (response.ok) {
-        setLotteries(data.lotteries);
-        setTotalPages(data.pagination.totalPages || 1);
-      }
+      const response = await axiosInstance.get(`/admin/lotteries?page=${page}&limit=${limit}`);
+      const data = response.data;
+      setLotteries(data.lotteries);
+      setTotalPages(data.pagination.totalPages || 1);
     } catch (error) {
       console.error("Error fetching lotteries", error);
       showTemporaryMessage("Failed to fetch lotteries.");
@@ -193,8 +190,8 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
     
     try {
       const url = isEditMode 
-        ? `http://localhost:5000/api/admin/lottery/${currentId}`
-        : `http://localhost:5000/api/admin/lottery`;
+        ? `/admin/lottery/${currentId}`
+        : `/admin/lottery`;
         
       const payload = {
         ...formData,
@@ -202,24 +199,18 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
         jackpotAmount: formData.jackpotAmount
       };
         
-      const response = await fetch(url, {
-        method: isEditMode ? "PUT" : "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-        body: JSON.stringify(payload)
-      });
-      
-      if (response.ok) {
-        toast.success(isEditMode ? "Lottery updated successfully!" : "Lottery added successfully!");
-        setIsModalOpen(false);
-        fetchLotteries();
+      if (isEditMode) {
+        await axiosInstance.put(url, payload);
       } else {
-        const errorData = await response.json();
-        toast.error(errorData.message || "Something went wrong.");
+        await axiosInstance.post(url, payload);
       }
-    } catch (error) {
+      
+      toast.success(isEditMode ? "Lottery updated successfully!" : "Lottery added successfully!");
+      setIsModalOpen(false);
+      fetchLotteries();
+    } catch (error: any) {
       console.error("Error saving lottery", error);
-      toast.error("Failed to connect to the server.");
+      toast.error(error.response?.data?.message || "Failed to connect to the server.");
     } finally {
       setActionLoading(false);
     }
@@ -227,17 +218,10 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
 
   const handleDelete = async (id: string) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/admin/lottery/${id}`, {
-        method: "DELETE",
-        credentials: "include"
-      });
-      if (response.ok) {
-        showTemporaryMessage("Lottery deleted successfully!");
-        fetchLotteries();
-      } else {
-        showTemporaryMessage("Failed to delete lottery.");
-      }
-    } catch (error) {
+      await axiosInstance.delete(`/admin/lottery/${id}`);
+      showTemporaryMessage("Lottery deleted successfully!");
+      fetchLotteries();
+    } catch (error: any) {
       console.error("Error deleting lottery", error);
       showTemporaryMessage("Failed to connect to the server.");
     }

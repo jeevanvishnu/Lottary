@@ -1,7 +1,10 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import "dotenv/config";
+import dns from "dns";
 import { Admin } from "../../models/admin/admin.model.ts";
+
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
 const connect = async () => {
     try {

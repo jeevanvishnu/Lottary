@@ -23,7 +23,7 @@ export const App = () => {
     };
   }, []);
 
-  const isAdminRoute = currentPath === "/admin" || currentPath === "/admin/";
+  const isAdminRoute = currentPath.startsWith("/admin");
 
   return (
     <div className="relative min-h-screen bg-[#1a0b2e] text-white font-sans overflow-clip">
