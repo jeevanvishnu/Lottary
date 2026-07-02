@@ -52,13 +52,14 @@ export const logout = (req: Request, res: Response) => {
 
 export const addLottery = async (req: Request, res: Response) => {
     try {
-        const { lotteryName, price, date, time, jackpotAmount, image } = req.body;
+        const { lotteryNo, lotteryName, price, date, time, jackpotAmount, image } = req.body;
 
-        if (!lotteryName || !price || !date || !time || !jackpotAmount) {
-            return res.status(400).json({ message: "All required fields must be provided" });
+        if (!lotteryNo || !lotteryName || !price || !date || !time || !jackpotAmount || !image) {
+            return res.status(400).json({ message: "All required fields must be provided, including an image" });
         }
 
         const newLottery = new Lottery({
+            lotteryNo,
             lotteryName,
             price,
             date,

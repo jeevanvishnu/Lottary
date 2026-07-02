@@ -140,6 +140,7 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
   // Form State
   const [currentId, setCurrentId] = useState("");
   const [formData, setFormData] = useState({
+    lotteryNo: "",
     lotteryName: "",
     price: "",
     date: getLocalDateString(),
@@ -184,6 +185,10 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.image) {
+      toast.error("Promotional image is required");
+      return;
+    }
     setActionLoading(true);
     
     try {
@@ -240,7 +245,7 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
 
   const openAddModal = () => {
     setIsEditMode(false);
-    setFormData({ lotteryName: "", price: "", date: getLocalDateString(), time: "03:00 PM", jackpotAmount: "", image: "" });
+    setFormData({ lotteryNo: "", lotteryName: "", price: "", date: getLocalDateString(), time: "03:00 PM", jackpotAmount: "", image: "" });
     setIsModalOpen(true);
   };
 
@@ -248,6 +253,7 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
     setIsEditMode(true);
     setCurrentId(lottery._id);
     setFormData({
+      lotteryNo: lottery.lotteryNo || "",
       lotteryName: lottery.lotteryName,
       price: lottery.price.toString(),
       date: lottery.date,
@@ -293,6 +299,7 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
                 <tr className="border-b border-white/10 text-xs uppercase tracking-wider text-gray-400">
                   <th className="py-4 px-4 font-bold">Image</th>
                   <th className="py-4 px-4 font-bold">Lottery Name</th>
+                  <th className="py-4 px-4 font-bold">Lottery No</th>
                   <th className="py-4 px-4 font-bold">Date</th>
                   <th className="py-4 px-4 font-bold">Time</th>
                   <th className="py-4 px-4 font-bold">Price</th>
@@ -303,7 +310,7 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
               <tbody className="text-sm">
                 {lotteries.length === 0 ? (
                   <tr>
-                    <td colSpan={7} className="py-8 text-center text-gray-400">No lotteries found. Create one to get started.</td>
+                    <td colSpan={8} className="py-8 text-center text-gray-400">No lotteries found. Create one to get started.</td>
                   </tr>
                 ) : (
                   lotteries.map((lottery) => (
@@ -316,6 +323,7 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
                         )}
                       </td>
                       <td className="py-4 px-4 font-bold text-white whitespace-nowrap">{lottery.lotteryName}</td>
+                      <td className="py-4 px-4 font-bold text-white whitespace-nowrap">{lottery.lotteryNo}</td>
                       <td className="py-4 px-4 text-gray-300 whitespace-nowrap">{lottery.date}</td>
                       <td className="py-4 px-4 text-gray-300 whitespace-nowrap">{lottery.time}</td>
                       <td className="py-4 px-4 text-emerald-400 font-semibold">₹{lottery.price}</td>
@@ -434,6 +442,23 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
                     </div>
                   </div>
 
+                  {/* Lottery No */}
+                  <div className="flex flex-col gap-2.5">
+                    <label className="text-xs font-bold text-gray-300 uppercase tracking-widest flex items-center gap-2">
+                      <FileText size={14} className="text-[#fbbf24]" /> Lottery No
+                    </label>
+                    <div className="relative">
+                      <input 
+                        type="text" 
+                        required 
+                        value={formData.lotteryNo}
+                        onChange={e => setFormData({...formData, lotteryNo: e.target.value})}
+                        placeholder="e.g. L-12345" 
+                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-[#fbbf24] focus:ring-1 focus:ring-[#fbbf24] focus:bg-white/10 transition-all shadow-inner" 
+                      />
+                    </div>
+                  </div>
+
                   {/* Price */}
                   <div className="flex flex-col gap-2.5">
                     <label className="text-xs font-bold text-gray-300 uppercase tracking-widest flex items-center gap-2">
@@ -510,14 +535,22 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
                       />
                       <div className={`w-full border-2 border-dashed ${formData.image ? 'border-[#fbbf24]/50 bg-[#fbbf24]/5' : 'border-white/20 bg-white/5'} rounded-2xl p-6 flex flex-col items-center justify-center gap-3 transition-all group-hover:border-[#fbbf24] group-hover:bg-white/10`}>
                         {formData.image ? (
-                          <div className="flex flex-col items-center gap-3">
+                          <div className="flex flex-col items-center gap-3 relative">
+                            <button 
+                              type="button" 
+                              onClick={(e) => { e.preventDefault(); e.stopPropagation(); setFormData(prev => ({ ...prev, image: "" })); }} 
+                              className="absolute -top-3 -right-3 bg-red-500 hover:bg-red-600 text-white rounded-full p-1.5 z-20 transition-all shadow-md cursor-pointer"
+                              title="Remove image"
+                            >
+                              <X size={14} strokeWidth={3} />
+                            </button>
                             <div className="w-24 h-24 rounded-xl overflow-hidden shadow-lg border border-white/20 relative group-hover:scale-105 transition-transform bg-black/50 flex justify-center items-center">
                               <img src={formData.image} alt="Preview" className="w-full h-full object-cover" />
                             </div>
                             <span className="text-sm font-semibold text-emerald-400 flex items-center gap-2">
                               <CheckCircle size={16} /> Image Ready
                             </span>
-                            <span className="text-xs text-gray-400 group-hover:text-white transition-colors">Click or drag to change</span>
+                            <span className="text-xs text-gray-400 group-hover:text-white transition-colors relative z-20">Click to change</span>
                           </div>
                         ) : (
                           <>

@@ -12,7 +12,7 @@ export const PrizeComparison = () => {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold mb-4 text-[#1a0b2e]"
           >
-            Regular vs <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fbbf24] to-amber-300">Bumper Lottery</span>
+            Regular vs <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d97706] to-[#b45309]">Bumper Lottery</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

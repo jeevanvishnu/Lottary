@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 
 const lotterySchema = new mongoose.Schema({
+    lotteryNo: {
+        type: String,
+        required: true,
+    },
     lotteryName: {
         type: String,
         required: true,
