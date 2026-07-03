@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const axiosInstance = axios.create({
-  baseURL: import.meta.env.MODE === 'development' ? 'http://localhost:5000/api' : 'https://lottary-sppr.onrender.com/api',
+  baseURL: 'https://lottary-sppr.onrender.com/api',
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json',

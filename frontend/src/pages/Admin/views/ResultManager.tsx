@@ -7,7 +7,7 @@ import {
 import { Button } from "@/components/ui/button";
 import toast from "react-hot-toast";
 
-const API_BASE = "http://localhost:5000/api/admin";
+const API_BASE = "https://lottary-sppr.onrender.com/api/admin";
 
 interface ResultSummary {
   _id: string;
