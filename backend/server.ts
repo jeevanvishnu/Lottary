@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin: ["http://localhost:5173", "https://lottary-ulcr.vercel.app"],
+    origin: ["http://localhost:5173", "https://lottary-ulcr.vercel.app", "https://lottary-c4o4-nu.vercel.app"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"]
 }));
