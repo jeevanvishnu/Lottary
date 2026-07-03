@@ -135,7 +135,7 @@ export const LotteryList = () => {
   );
 
   return (
-    <section id="lottery-list" className="py-24 px-8 w-full relative z-10 bg-slate-50 overflow-hidden">
+    <section id="lottery-list" className={`py-24 px-8 w-full relative bg-slate-50 overflow-hidden ${selectedLottery ? 'z-[100]' : 'z-10'}`}>
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-orange-400/10 rounded-full blur-3xl"></div>

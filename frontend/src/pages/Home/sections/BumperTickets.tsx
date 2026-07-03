@@ -91,7 +91,7 @@ export const BumperTickets = () => {
   }, [selectedTicket]);
 
   return (
-    <section className="py-12 md:py-20 px-4 md:px-8 max-w-[1440px] mx-auto w-full relative z-10">
+    <section className={`py-12 md:py-20 px-4 md:px-8 max-w-[1440px] mx-auto w-full relative ${selectedTicket ? 'z-[100]' : 'z-10'}`}>
       <div className="text-center mb-10 md:mb-16">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
