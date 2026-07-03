@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-
+import { handleBuyWhatsApp } from "@/lib/whatsapp";
 const tickets = [
   { day: "Monday", name: "Win-Win", time: "3:00 PM", prize: "₹75 Lakhs", price: "₹40" },
   { day: "Tuesday", name: "Sthree Sakthi", time: "3:00 PM", prize: "₹75 Lakhs", price: "₹40" },
@@ -50,7 +50,17 @@ export const FortuneTickets = () => {
               </div>
             </div>
 
-            <Button className="w-full bg-white text-black hover:bg-neutral-200 rounded-full font-medium shadow-md">
+            <Button 
+              onClick={() => handleBuyWhatsApp({
+                lotteryName: ticket.name,
+                lotteryNo: "N/A",
+                price: ticket.price.replace('₹', ''),
+                date: "Every " + ticket.day,
+                time: ticket.time,
+                jackpotAmount: ticket.prize.replace('₹', '')
+              })}
+              className="w-full bg-white text-black hover:bg-neutral-200 rounded-full font-medium shadow-md"
+            >
               Buy Now
             </Button>
           </motion.div>

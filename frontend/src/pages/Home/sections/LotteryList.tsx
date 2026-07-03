@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Loader2, Calendar, Clock, Ticket, Trophy, Eye, X } from "lucide-react";
 import { axiosInstance } from "@/lib/axios";
-
+import { handleBuyWhatsApp } from "@/lib/whatsapp";
 export const LotteryList = () => {
   const [lotteries, setLotteries] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -123,7 +123,10 @@ export const LotteryList = () => {
               View
             </span>
           </Button>
-          <Button className="flex-[1.5] relative overflow-hidden group/btn bg-gradient-to-r from-orange-500 to-rose-500 text-white rounded-2xl py-6 font-bold text-base shadow-md shadow-orange-500/20 hover:shadow-lg hover:shadow-orange-500/40 border-none transition-all duration-300 hover:-translate-y-0.5">
+          <Button 
+            onClick={() => handleBuyWhatsApp(card)}
+            className="flex-[1.5] relative overflow-hidden group/btn bg-gradient-to-r from-orange-500 to-rose-500 text-white rounded-2xl py-6 font-bold text-base shadow-md shadow-orange-500/20 hover:shadow-lg hover:shadow-orange-500/40 border-none transition-all duration-300 hover:-translate-y-0.5"
+          >
             <span className="relative z-10 flex items-center justify-center gap-1.5">
               Buy
               <Ticket size={18} className="group-hover/btn:rotate-12 group-hover/btn:scale-110 transition-transform duration-300" />
@@ -276,7 +279,10 @@ export const LotteryList = () => {
                   </div>
                 </div>
 
-                <Button className="w-full relative overflow-hidden group/btn bg-gradient-to-r from-orange-500 to-rose-500 text-white rounded-2xl py-7 font-bold text-lg shadow-xl hover:shadow-2xl shadow-orange-500/20 hover:shadow-orange-500/40 border-none transition-all duration-300 hover:-translate-y-1">
+                <Button 
+                  onClick={() => handleBuyWhatsApp(selectedLottery)}
+                  className="w-full relative overflow-hidden group/btn bg-gradient-to-r from-orange-500 to-rose-500 text-white rounded-2xl py-7 font-bold text-lg shadow-xl hover:shadow-2xl shadow-orange-500/20 hover:shadow-orange-500/40 border-none transition-all duration-300 hover:-translate-y-1"
+                >
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     Buy Ticket Now
                     <Ticket size={22} className="group-hover/btn:rotate-12 group-hover/btn:scale-110 transition-transform duration-300" />

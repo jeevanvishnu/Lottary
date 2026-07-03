@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, Clock, Eye, X, Ticket, Trophy } from "lucide-react";
 import { axiosInstance } from "@/lib/axios";
-
+import { handleBuyWhatsApp } from "@/lib/whatsapp";
 const COLORS = [
   "from-[#fbbf24] to-amber-500",
   "from-[#fbbf24] to-[#d97706]",
@@ -140,7 +140,10 @@ export const BumperTickets = () => {
                     <Eye size={16} />
                     <span>View</span>
                   </button>
-                  <button className="flex-[1.5] relative overflow-hidden rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 text-white font-bold h-10 md:h-12 px-4 md:px-6 text-xs md:text-sm uppercase tracking-wider hover:bg-[#fbbf24] hover:text-black hover:border-[#fbbf24] transition-all duration-300 shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(251,191,36,0.4)]">
+                  <button 
+                    onClick={() => handleBuyWhatsApp(ticket)}
+                    className="flex-[1.5] relative overflow-hidden rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 text-white font-bold h-10 md:h-12 px-4 md:px-6 text-xs md:text-sm uppercase tracking-wider hover:bg-[#fbbf24] hover:text-black hover:border-[#fbbf24] transition-all duration-300 shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(251,191,36,0.4)]"
+                  >
                     Buy Now
                   </button>
               </div>
@@ -241,7 +244,10 @@ export const BumperTickets = () => {
                   </div>
                 </div>
 
-                <button className={`w-full relative overflow-hidden group/btn bg-gradient-to-r from-[#fbbf24] to-amber-500 text-black rounded-2xl py-6 font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 border-none transition-all duration-300 flex items-center justify-center gap-2`}>
+                <button 
+                  onClick={() => handleBuyWhatsApp(selectedTicket)}
+                  className={`w-full relative overflow-hidden group/btn bg-gradient-to-r from-[#fbbf24] to-amber-500 text-black rounded-2xl py-6 font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 border-none transition-all duration-300 flex items-center justify-center gap-2`}
+                >
                   Buy Ticket Now
                   <Ticket size={22} className="group-hover/btn:rotate-12 group-hover/btn:scale-110 transition-transform duration-300" />
                 </button>
