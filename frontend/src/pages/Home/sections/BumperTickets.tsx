@@ -1,82 +1,34 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, Clock, Eye, X, Ticket, Trophy } from "lucide-react";
+import { axiosInstance } from "@/lib/axios";
 
-import lottery01 from "@/assets/lottery01.jpg";
-import lottery02 from "@/assets/lottery02.jpg";
-import lottery03 from "@/assets/lottery03.jpg";
-
-const bumperTickets = [
-  {
-    id: "christmas",
-    title: "Christmas New Year Bumper",
-    drawDate: "25 Jan 2027",
-    time: "02:00 PM",
-    lotteryNo: "BR-95",
-    prize: "₹ 20 Crores",
-    ticketPrice: "₹ 400",
-    image: lottery01,
-    color: "from-[#fbbf24] to-amber-500",
-  },
-  {
-    id: "summer",
-    title: "Summer Bumper",
-    drawDate: "20 Mar 2027",
-    time: "02:00 PM",
-    lotteryNo: "BR-96",
-    prize: "₹ 10 Crores",
-    ticketPrice: "₹ 250",
-    image: lottery02,
-    color: "from-[#fbbf24] to-[#d97706]",
-  },
-  {
-    id: "vishu",
-    title: "Vishu Bumper",
-    drawDate: "24 May 2027",
-    time: "02:00 PM",
-    lotteryNo: "BR-97",
-    prize: "₹ 12 Crores",
-    ticketPrice: "₹ 300",
-    image: lottery03,
-    color: "from-[#fbbf24] to-[#FCEABB]",
-  },
-  {
-    id: "monsoon",
-    title: "Monsoon Bumper",
-    drawDate: "30 Jul 2027",
-    time: "02:00 PM",
-    lotteryNo: "BR-98",
-    prize: "₹ 10 Crores",
-    ticketPrice: "₹ 250",
-    image: lottery01,
-    color: "from-[#fbbf24] to-amber-400",
-  },
-  {
-    id: "thiruvonam",
-    title: "Thiruvonam Bumper",
-    drawDate: "20 Sep 2027",
-    time: "02:00 PM",
-    lotteryNo: "BR-99",
-    prize: "₹ 25 Crores",
-    ticketPrice: "₹ 500",
-    image: lottery02,
-    color: "from-[#fbbf24] to-amber-300",
-  },
-  {
-    id: "pooja",
-    title: "Pooja Bumper",
-    drawDate: "22 Nov 2027",
-    time: "02:00 PM",
-    lotteryNo: "BR-100",
-    prize: "₹ 12 Crores",
-    ticketPrice: "₹ 300",
-    image: lottery03,
-    color: "from-[#fbbf24] to-[#FFD700]",
-  },
+const COLORS = [
+  "from-[#fbbf24] to-amber-500",
+  "from-[#fbbf24] to-[#d97706]",
+  "from-[#fbbf24] to-[#FCEABB]",
+  "from-[#fbbf24] to-amber-400",
+  "from-[#fbbf24] to-amber-300",
+  "from-[#fbbf24] to-[#FFD700]",
 ];
 
 export const BumperTickets = () => {
+  const [bumperTickets, setBumperTickets] = useState<any[]>([]);
   const [selectedTicket, setSelectedTicket] = useState<any | null>(null);
+
+  useEffect(() => {
+    const fetchBumpers = async () => {
+      try {
+        const response = await axiosInstance.get("/admin/lotteries?limit=100");
+        const all = response.data.lotteries || [];
+        const bumpers = all.filter((l: any) => l.type === 'bumper');
+        setBumperTickets(bumpers);
+      } catch (error) {
+        console.error("Error fetching bumper lotteries:", error);
+      }
+    };
+    fetchBumpers();
+  }, []);
 
   // Prevent body scroll when modal is open
   useEffect(() => {
@@ -91,7 +43,8 @@ export const BumperTickets = () => {
   }, [selectedTicket]);
 
   return (
-    <section className={`py-12 md:py-20 px-4 md:px-8 max-w-[1440px] mx-auto w-full relative ${selectedTicket ? 'z-[100]' : 'z-10'}`}>
+    <section className={`bg-[#191032] py-12 md:py-20 w-full relative ${selectedTicket ? 'z-[100]' : 'z-10'}`}>
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8">
       <div className="text-center mb-10 md:mb-16">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -113,9 +66,16 @@ export const BumperTickets = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-        {bumperTickets.map((ticket, index) => (
+        {bumperTickets.length === 0 ? (
+          <div className="col-span-full text-center py-16 text-white/50">
+            <Trophy className="mx-auto mb-4 opacity-30" size={48} />
+            <p className="text-lg font-medium">No bumper lotteries available at the moment.</p>
+          </div>
+        ) : bumperTickets.map((ticket, index) => {
+          const color = COLORS[index % COLORS.length];
+          return (
           <motion.div
-            key={ticket.id}
+            key={ticket._id}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -125,13 +85,13 @@ export const BumperTickets = () => {
             {/* Shimmer effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 z-30 pointer-events-none" />
             
-            <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${ticket.color} z-20`} />
+            <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${color} z-20`} />
 
             <div className="relative h-48 md:h-56 w-full overflow-hidden flex-shrink-0">
               <div className="absolute inset-0 bg-gradient-to-t from-[#003344] via-black/20 to-transparent z-10 opacity-80" />
               <img
                 src={ticket.image}
-                alt={ticket.title}
+                alt={ticket.lotteryName}
                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 filter group-hover:brightness-110"
               />
 
@@ -140,12 +100,12 @@ export const BumperTickets = () => {
             <div className="p-5 md:p-6 flex-1 flex flex-col relative z-20 bg-gradient-to-b from-[#003344]/50 to-transparent">
               <div className="mb-4">
                 <span className="text-[10px] md:text-xs font-extrabold text-[#fbbf24] uppercase tracking-wider block mb-1">Lottery No: {ticket.lotteryNo}</span>
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-3 leading-tight group-hover:text-[#fbbf24] transition-colors line-clamp-2">{ticket.title}</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-3 leading-tight group-hover:text-[#fbbf24] transition-colors line-clamp-2">{ticket.lotteryName}</h3>
                 
                 <div className="flex flex-wrap items-center gap-2 mb-4">
                    <div className="flex items-center gap-1.5 text-white/80 text-[10px] md:text-[11px] font-medium bg-white/5 px-2.5 py-1.5 rounded-md border border-white/10">
                      <Calendar size={14} className="text-[#fbbf24]" />
-                     {ticket.drawDate}
+                     {ticket.date}
                    </div>
                    <div className="flex items-center gap-1.5 text-white/80 text-[10px] md:text-[11px] font-medium bg-white/5 px-2.5 py-1.5 rounded-md border border-white/10">
                      <Clock size={14} className="text-[#fbbf24]" />
@@ -159,7 +119,7 @@ export const BumperTickets = () => {
                       <Ticket size={12} className="text-[#fbbf24]" />
                       <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-wider">Ticket Price</span>
                     </div>
-                    <p className="text-base md:text-lg font-black text-white">{ticket.ticketPrice}</p>
+                    <p className="text-base md:text-lg font-black text-white">₹ {ticket.price}</p>
                   </div>
                   
                   <div className="flex flex-col gap-1 p-2.5 md:p-3 rounded-xl bg-white/5 border border-white/10 shadow-inner group-hover:bg-white/10 transition-colors">
@@ -167,7 +127,7 @@ export const BumperTickets = () => {
                       <Trophy size={12} className="text-[#fbbf24]" />
                       <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-wider">First Prize</span>
                     </div>
-                    <p className={`text-base md:text-lg font-black text-transparent bg-clip-text bg-gradient-to-r ${ticket.color}`}>{ticket.prize}</p>
+                    <p className={`text-base md:text-lg font-black text-transparent bg-clip-text bg-gradient-to-r ${color}`}>₹ {ticket.jackpotAmount}</p>
                   </div>
                 </div>
               </div>
@@ -186,7 +146,8 @@ export const BumperTickets = () => {
               </div>
             </div>
           </motion.div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Full View Modal */}
@@ -219,11 +180,11 @@ export const BumperTickets = () => {
 
               {/* Modal Image */}
               <div className="w-full md:w-1/2 h-64 md:h-auto min-h-[300px] relative bg-slate-50 flex-shrink-0 flex items-center justify-center p-6">
-                <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${selectedTicket.color} z-20`} />
+                <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#fbbf24] to-amber-500 z-20`} />
                 {selectedTicket.image ? (
                   <img 
                     src={selectedTicket.image} 
-                    alt={selectedTicket.title} 
+                    alt={selectedTicket.lotteryName} 
                     className="w-full h-full object-contain drop-shadow-md rounded-xl"
                   />
                 ) : (
@@ -243,13 +204,13 @@ export const BumperTickets = () => {
                     Lottery No: {selectedTicket.lotteryNo}
                   </span>
                   <h2 className="text-3xl md:text-4xl font-black text-slate-800 leading-tight mb-4">
-                    {selectedTicket.title}
+                    {selectedTicket.lotteryName}
                   </h2>
                   
                   <div className="flex flex-wrap items-center gap-3 mb-6">
                     <div className="flex items-center gap-2 text-slate-700 text-sm font-bold bg-slate-100 px-4 py-2 rounded-xl border border-slate-200 shadow-sm">
                       <Calendar size={18} className="text-amber-500" />
-                      {selectedTicket.drawDate}
+                      {selectedTicket.date}
                     </div>
                     <div className="flex items-center gap-2 text-slate-700 text-sm font-bold bg-slate-100 px-4 py-2 rounded-xl border border-slate-200 shadow-sm">
                       <Clock size={18} className="text-amber-500" />
@@ -268,7 +229,7 @@ export const BumperTickets = () => {
                       <Ticket size={22} />
                       <span className="text-sm font-black uppercase tracking-wide">Ticket Price</span>
                     </div>
-                    <span className="text-2xl font-black text-amber-600">{selectedTicket.ticketPrice}</span>
+                    <span className="text-2xl font-black text-amber-600">₹ {selectedTicket.price}</span>
                   </div>
                   
                   <div className="flex items-center justify-between p-5 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-sm">
@@ -276,11 +237,11 @@ export const BumperTickets = () => {
                       <Trophy size={22} />
                       <span className="text-sm font-black uppercase tracking-wide">First Prize</span>
                     </div>
-                    <span className="text-2xl font-black text-emerald-600">{selectedTicket.prize}</span>
+                    <span className="text-2xl font-black text-emerald-600">₹ {selectedTicket.jackpotAmount}</span>
                   </div>
                 </div>
 
-                <button className={`w-full relative overflow-hidden group/btn bg-gradient-to-r ${selectedTicket.color} text-black rounded-2xl py-6 font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 border-none transition-all duration-300 flex items-center justify-center gap-2`}>
+                <button className={`w-full relative overflow-hidden group/btn bg-gradient-to-r from-[#fbbf24] to-amber-500 text-black rounded-2xl py-6 font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 border-none transition-all duration-300 flex items-center justify-center gap-2`}>
                   Buy Ticket Now
                   <Ticket size={22} className="group-hover/btn:rotate-12 group-hover/btn:scale-110 transition-transform duration-300" />
                 </button>
@@ -289,6 +250,7 @@ export const BumperTickets = () => {
           </div>
         )}
       </AnimatePresence>
+      </div>
     </section>
   );
 };

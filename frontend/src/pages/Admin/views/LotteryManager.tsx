@@ -136,7 +136,7 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
   // Pagination
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const limit = 10;
+  const limit = 100;
 
   // Form State
   const [currentId, setCurrentId] = useState("");
@@ -147,7 +147,8 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
     date: getLocalDateString(),
     time: "03:00 PM",
     jackpotAmount: "",
-    image: ""
+    image: "",
+    type: "regular"
   });
 
   const fetchLotteries = async () => {
@@ -229,7 +230,7 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
 
   const openAddModal = () => {
     setIsEditMode(false);
-    setFormData({ lotteryNo: "", lotteryName: "", price: "", date: getLocalDateString(), time: "03:00 PM", jackpotAmount: "", image: "" });
+    setFormData({ lotteryNo: "", lotteryName: "", price: "", date: getLocalDateString(), time: "03:00 PM", jackpotAmount: "", image: "", type: "regular" });
     setIsModalOpen(true);
   };
 
@@ -243,7 +244,8 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
       date: lottery.date,
       time: lottery.time,
       jackpotAmount: lottery.jackpotAmount.toString(),
-      image: lottery.image || ""
+      image: lottery.image || "",
+      type: lottery.type || "regular"
     });
     setIsModalOpen(true);
   };
@@ -282,6 +284,7 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
               <thead>
                 <tr className="border-b border-white/10 text-xs uppercase tracking-wider text-gray-400">
                   <th className="py-4 px-4 font-bold">Image</th>
+                  <th className="py-4 px-4 font-bold">Type</th>
                   <th className="py-4 px-4 font-bold">Lottery Name</th>
                   <th className="py-4 px-4 font-bold">Lottery No</th>
                   <th className="py-4 px-4 font-bold">Date</th>
@@ -305,6 +308,11 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
                         ) : (
                           <div className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center text-gray-500 border border-white/10">No Img</div>
                         )}
+                      </td>
+                      <td className="py-4 px-4">
+                        <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${lottery.type === 'bumper' ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30' : 'bg-blue-500/20 text-blue-400 border border-blue-500/30'}`}>
+                          {lottery.type || 'Regular'}
+                        </span>
                       </td>
                       <td className="py-4 px-4 font-bold text-white whitespace-nowrap">{lottery.lotteryName}</td>
                       <td className="py-4 px-4 font-bold text-white whitespace-nowrap">{lottery.lotteryNo}</td>
@@ -351,25 +359,7 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
           )}
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-between items-center pt-4 border-t border-white/10 mt-auto gap-4">
-          <span className="text-xs text-gray-400 font-medium">Page {page} of {totalPages}</span>
-          <div className="flex gap-2">
-            <button
-              onClick={() => setPage(p => Math.max(1, p - 1))}
-              disabled={page === 1 || loading}
-              className="px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:bg-white/10 hover:text-white text-xs font-bold transition-all disabled:opacity-30 disabled:cursor-not-allowed"
-            >
-              Prev
-            </button>
-            <button
-              onClick={() => setPage(p => Math.min(totalPages, p + 1))}
-              disabled={page === totalPages || loading}
-              className="px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:bg-white/10 hover:text-white text-xs font-bold transition-all disabled:opacity-30 disabled:cursor-not-allowed"
-            >
-              Next
-            </button>
-          </div>
-        </div>
+
       </motion.div>
 
       {/* Add/Edit Lottery Modal */}
@@ -408,6 +398,23 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
               {/* Form */}
               <form className="flex flex-col gap-6 relative z-10" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
+
+                  {/* Type Selection */}
+                  <div className="flex flex-col gap-2.5 md:col-span-2">
+                    <label className="text-xs font-bold text-gray-300 uppercase tracking-widest flex items-center gap-2">
+                      <FileText size={14} className="text-[#fbbf24]" /> Lottery Type
+                    </label>
+                    <div className="flex gap-4">
+                      <label className={`flex-1 cursor-pointer flex items-center justify-center gap-2 py-3 px-4 rounded-xl border transition-all ${formData.type === 'regular' ? 'bg-blue-500/20 border-blue-500/50 text-blue-400 font-bold' : 'bg-white/5 border-white/10 text-gray-400 hover:bg-white/10'}`}>
+                        <input type="radio" name="lotteryType" value="regular" checked={formData.type === 'regular'} onChange={() => setFormData({ ...formData, type: 'regular' })} className="hidden" />
+                        Regular Lottery
+                      </label>
+                      <label className={`flex-1 cursor-pointer flex items-center justify-center gap-2 py-3 px-4 rounded-xl border transition-all ${formData.type === 'bumper' ? 'bg-purple-500/20 border-purple-500/50 text-purple-400 font-bold' : 'bg-white/5 border-white/10 text-gray-400 hover:bg-white/10'}`}>
+                        <input type="radio" name="lotteryType" value="bumper" checked={formData.type === 'bumper'} onChange={() => setFormData({ ...formData, type: 'bumper' })} className="hidden" />
+                        Bumper Lottery
+                      </label>
+                    </div>
+                  </div>
 
                   {/* Title */}
                   <div className="flex flex-col gap-2.5">

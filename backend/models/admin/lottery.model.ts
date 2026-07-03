@@ -28,6 +28,11 @@ const lotterySchema = new mongoose.Schema({
     image: {
         type: String,
         default: ""
+    },
+    type: {
+        type: String,
+        enum: ["regular", "bumper"],
+        default: "regular"
     }
 }, { timestamps: true });
 

@@ -22,7 +22,12 @@ interface PreviewResult {
   draw_date: string;
   draw_name: string;
   draw_code: string;
-  first?: { ticket: string };
+  first?: { 
+    ticket: string;
+    location?: string;
+    agent?: string;
+    agency_no?: string;
+  };
   first_ticket?: string;
   prizes?: { amounts?: { "1st"?: string } };
 }
