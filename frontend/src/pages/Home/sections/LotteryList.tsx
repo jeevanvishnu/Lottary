@@ -8,7 +8,7 @@ export const LotteryList = () => {
   const [lotteries, setLotteries] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedLottery, setSelectedLottery] = useState<any | null>(null);
-  const [activeFilter, setActiveFilter] = useState<'all' | 'regular' | 'bumper'>('all');
+
 
   // Prevent body scroll when modal is open
   useEffect(() => {

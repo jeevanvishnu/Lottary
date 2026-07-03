@@ -134,8 +134,8 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
   const [actionLoading, setActionLoading] = useState(false);
 
   // Pagination
-  const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
+  const [page] = useState(1);
+  const [, setTotalPages] = useState(1);
   const limit = 100;
 
   // Form State
