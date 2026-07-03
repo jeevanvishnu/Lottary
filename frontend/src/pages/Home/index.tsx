@@ -89,9 +89,15 @@ export const Home = () => {
               <span className="text-lg sm:text-3xl lg:text-3xl text-[#d8b4fe] mt-2 font-medium">Kerala trusted lottery shop</span>
             </h1>
 
-            <p className="text-sm sm:text-lg text-gray-300/90 mb-6 lg:mb-8 max-w-[280px] sm:max-w-md mx-auto lg:mx-0 leading-relaxed font-normal">
+            <p className="text-sm sm:text-lg text-gray-300/90 mb-4 max-w-[280px] sm:max-w-md mx-auto lg:mx-0 leading-relaxed font-normal">
               Play today's draw, check live results, and win big securely.
             </p>
+            <div className="flex items-center justify-center lg:justify-start gap-2 mb-6 lg:mb-8">
+              <span className="inline-flex items-center gap-1.5 bg-green-500/20 text-green-400 border border-green-500/30 px-4 py-1.5 rounded-full text-sm font-semibold backdrop-blur-sm shadow-[0_0_10px_rgba(34,197,94,0.2)]">
+                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                Open 7 Days a Week (9am to 9 Pm) — No Holidays
+              </span>
+            </div>
 
             {/* Buttons — normal flow on desktop only */}
             <div className="hidden lg:flex flex-row items-center justify-start gap-5">
@@ -106,10 +112,10 @@ export const Home = () => {
                 size="lg"
                 variant="outline"
                 className="w-auto h-14 rounded-full px-8 text-lg border-2 border-[#8b5cf6]/60 text-[#e9d5ff] hover:bg-[#8b5cf6]/20 hover:text-white font-bold backdrop-blur-md cursor-pointer shadow-[0_8px_25px_-5px_rgba(139,92,246,0.25)] transition-all hover:scale-105 active:scale-95 bg-[#0a0118]/40 flex items-center justify-center gap-3"
-                onClick={() => window.location.href = 'tel:9345478572'}
+                onClick={() => window.location.href = 'tel:6382932961'}
               >
                 <Phone className="w-5 h-5 text-[#fbbf24]" />
-                93454 78572
+                63829 32961
               </Button>
             </div>
           </motion.div>
@@ -150,10 +156,10 @@ export const Home = () => {
               size="lg"
               variant="outline"
               className="w-full h-14 rounded-full px-8 text-lg border-2 border-[#8b5cf6]/60 text-[#e9d5ff] hover:bg-[#8b5cf6]/20 hover:text-white font-bold backdrop-blur-md cursor-pointer shadow-[0_8px_25px_-5px_rgba(139,92,246,0.25)] transition-all active:scale-95 bg-[#0a0118]/40 flex items-center justify-center gap-3"
-              onClick={() => window.location.href = 'tel:9345478572'}
+              onClick={() => window.location.href = 'tel:6382932961'}
             >
               <Phone className="w-5 h-5 text-[#fbbf24]" />
-              93454 78572
+              63829 32961
             </Button>
           </div>
         </main>

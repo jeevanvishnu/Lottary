@@ -55,7 +55,7 @@ export const Footer = () => {
               <div className="w-10 h-10 rounded-full bg-[#fbbf24]/10 flex items-center justify-center text-[#fbbf24] group-hover:bg-[#fbbf24] group-hover:text-[#1a0b2e] transition-colors shrink-0">
                 <Phone className="w-4 h-4" />
               </div>
-              <span className="mt-1 group-hover:text-white transition-colors">+91 93454 78572 <br /><span className="text-sm text-[#94B8C8]/60">Support: 9AM - 6PM</span></span>
+              <span className="mt-1 group-hover:text-white transition-colors">+91 63829 32961 <br /><span className="text-sm text-[#94B8C8]/60">Support: 9am to 9 Pm</span></span>
             </li>
             <li className="flex items-start gap-4 group cursor-pointer">
               <div className="w-10 h-10 rounded-full bg-[#6d28d9]/20 flex items-center justify-center text-[#007A94] group-hover:bg-[#6d28d9] group-hover:text-white transition-colors shrink-0">
@@ -67,7 +67,7 @@ export const Footer = () => {
               <div className="w-10 h-10 rounded-full bg-[#fbbf24]/10 flex items-center justify-center text-[#fbbf24] group-hover:bg-[#fbbf24] group-hover:text-[#1a0b2e] transition-colors shrink-0">
                 <MapPin className="w-4 h-4" />
               </div>
-              <span className="mt-1 group-hover:text-white transition-colors">123 MG Road, Ernakulam<br />Kerala, 682011</span>
+              <span className="mt-1 group-hover:text-white transition-colors">Sukumaran S/o Viswanathan<br />Krishna Nivas, Gopalapuram<br />Vannamada, Palakkad District</span>
             </li>
           </ul>
         </div>
@@ -78,13 +78,13 @@ export const Footer = () => {
           </h4>
           <div className="w-full h-40 rounded-xl border border-[#6d28d9]/30 shadow-[0_0_15px_rgba(109,40,217,0.2)] overflow-hidden hover:border-[#fbbf24]/40 transition-colors">
             <iframe 
-              src="https://maps.google.com/maps?q=MG%20Road,%20Ernakulam,%20Kerala&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3920.5293852410773!2d76.86728287504073!3d10.693590189450196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDQxJzM2LjkiTiA3NsKwNTInMTEuNSJF!5e0!3m2!1sen!2sin!4v1783054654016!5m2!1sen!2sin" 
               width="100%" 
               height="100%" 
               style={{ border: 0 }} 
               allowFullScreen 
               loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
+              referrerPolicy="strict-origin-when-cross-origin"
             ></iframe>
           </div>
         </div>

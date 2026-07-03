@@ -55,13 +55,13 @@ export const WhyChooseUs = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 lg:gap-6 w-full lg:w-auto">
-              <a href="tel:9345478572" className="flex items-center gap-4 bg-white p-4 rounded-2xl border border-gray-200 hover:border-[#d97706]/40 transition-all group flex-1 shadow-sm hover:shadow-md">
+              <a href="tel:6382932961" className="flex items-center gap-4 bg-white p-4 rounded-2xl border border-gray-200 hover:border-[#d97706]/40 transition-all group flex-1 shadow-sm hover:shadow-md">
                 <div className="w-12 h-12 shrink-0 rounded-xl bg-[#d97706]/10 text-[#d97706] flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Call Us Now</p>
-                  <p className="text-[#1a0b2e] font-bold text-lg whitespace-nowrap">+91 93454 78572</p>
+                  <p className="text-[#1a0b2e] font-bold text-lg whitespace-nowrap">+91 63829 32961</p>
                 </div>
               </a>
 
@@ -71,7 +71,7 @@ export const WhyChooseUs = () => {
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Our Location</p>
-                  <p className="text-[#1a0b2e] font-bold text-sm">Ernakulam, Kerala</p>
+                  <p className="text-[#1a0b2e] font-bold text-sm">Palakkad District, Kerala</p>
                 </div>
               </div>
             </div>

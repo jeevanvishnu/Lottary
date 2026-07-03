@@ -45,7 +45,7 @@ const CustomTimePicker = ({ value, onChange }: { value: string, onChange: (val: 
   const [hour, setHour] = useState(initialTime.h);
   const [minute, setMinute] = useState(initialTime.m);
   const [ampm, setAmpm] = useState(initialTime.p);
-  
+
   useEffect(() => {
     if (value) {
       const parsed = parseTime(value);
@@ -64,19 +64,19 @@ const CustomTimePicker = ({ value, onChange }: { value: string, onChange: (val: 
 
   return (
     <div className="relative">
-      <div 
+      <div
         onClick={() => setIsOpen(!isOpen)}
         className={`w-full bg-white/5 border ${isOpen ? 'border-[#fbbf24]' : 'border-white/10'} rounded-2xl px-4 py-4 text-white focus:outline-none transition-all shadow-inner flex justify-between items-center cursor-pointer hover:bg-white/10`}
       >
         <span className="font-medium tracking-wider">{hour}:{minute} {ampm}</span>
         <Clock size={16} className={isOpen ? 'text-[#fbbf24]' : 'text-gray-400'} />
       </div>
-      
+
       <AnimatePresence>
         {isOpen && (
           <>
             <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 10, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 10, scale: 0.95 }}
@@ -86,7 +86,7 @@ const CustomTimePicker = ({ value, onChange }: { value: string, onChange: (val: 
               <div className="flex-1 h-56 overflow-y-auto border-r border-white/10 p-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                 <div className="text-xs text-center text-gray-500 mb-2 font-bold uppercase tracking-wider sticky top-0 bg-[#12072b]/90 backdrop-blur py-1 z-10">Hour</div>
                 {hours.map((h) => (
-                  <div 
+                  <div
                     key={h}
                     onClick={() => setHour(h)}
                     className={`text-center py-2 my-1 rounded-xl cursor-pointer transition-all ${hour === h ? 'bg-gradient-to-r from-[#fbbf24] to-[#f59e0b] text-[#1a0b2e] font-bold shadow-md' : 'text-gray-300 hover:bg-white/10 hover:text-white'}`}
@@ -98,7 +98,7 @@ const CustomTimePicker = ({ value, onChange }: { value: string, onChange: (val: 
               <div className="flex-1 h-56 overflow-y-auto border-r border-white/10 p-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                 <div className="text-xs text-center text-gray-500 mb-2 font-bold uppercase tracking-wider sticky top-0 bg-[#12072b]/90 backdrop-blur py-1 z-10">Min</div>
                 {minutes.map((m) => (
-                  <div 
+                  <div
                     key={m}
                     onClick={() => setMinute(m)}
                     className={`text-center py-2 my-1 rounded-xl cursor-pointer transition-all ${minute === m ? 'bg-gradient-to-r from-[#fbbf24] to-[#f59e0b] text-[#1a0b2e] font-bold shadow-md' : 'text-gray-300 hover:bg-white/10 hover:text-white'}`}
@@ -109,7 +109,7 @@ const CustomTimePicker = ({ value, onChange }: { value: string, onChange: (val: 
               </div>
               <div className="flex-1 flex flex-col justify-center p-2 gap-2 bg-black/20">
                 {['AM', 'PM'].map((p) => (
-                  <div 
+                  <div
                     key={p}
                     onClick={() => { setAmpm(p); setIsOpen(false); }}
                     className={`text-center py-4 rounded-xl cursor-pointer transition-all font-bold tracking-wider ${ampm === p ? 'bg-gradient-to-r from-[#fbbf24] to-[#f59e0b] text-[#1a0b2e] shadow-md' : 'text-gray-400 hover:bg-white/10 hover:text-white border border-white/5'}`}
@@ -132,12 +132,12 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
   const [lotteries, setLotteries] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [actionLoading, setActionLoading] = useState(false);
-  
+
   // Pagination
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const limit = 10;
-  
+
   // Form State
   const [currentId, setCurrentId] = useState("");
   const [formData, setFormData] = useState({
@@ -187,24 +187,24 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
       return;
     }
     setActionLoading(true);
-    
+
     try {
-      const url = isEditMode 
+      const url = isEditMode
         ? `/admin/lottery/${currentId}`
         : `/admin/lottery`;
-        
+
       const payload = {
         ...formData,
         price: Number(formData.price),
         jackpotAmount: formData.jackpotAmount
       };
-        
+
       if (isEditMode) {
         await axiosInstance.put(url, payload);
       } else {
         await axiosInstance.post(url, payload);
       }
-      
+
       toast.success(isEditMode ? "Lottery updated successfully!" : "Lottery added successfully!");
       setIsModalOpen(false);
       fetchLotteries();
@@ -354,14 +354,14 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
         <div className="flex flex-col sm:flex-row justify-between items-center pt-4 border-t border-white/10 mt-auto gap-4">
           <span className="text-xs text-gray-400 font-medium">Page {page} of {totalPages}</span>
           <div className="flex gap-2">
-            <button 
+            <button
               onClick={() => setPage(p => Math.max(1, p - 1))}
               disabled={page === 1 || loading}
               className="px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:bg-white/10 hover:text-white text-xs font-bold transition-all disabled:opacity-30 disabled:cursor-not-allowed"
             >
               Prev
             </button>
-            <button 
+            <button
               onClick={() => setPage(p => Math.min(totalPages, p + 1))}
               disabled={page === totalPages || loading}
               className="px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:bg-white/10 hover:text-white text-xs font-bold transition-all disabled:opacity-30 disabled:cursor-not-allowed"
@@ -386,12 +386,12 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 30 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="bg-gradient-to-b from-[#1a0b2e] to-[#0f051e] border border-white/10 rounded-[2rem] p-8 flex flex-col gap-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] w-full max-w-3xl relative overflow-hidden"
+              className="bg-gradient-to-b from-[#1a0b2e] to-[#0f051e] border border-white/10 rounded-[2rem] p-4 sm:p-6 md:p-8 flex flex-col gap-4 sm:gap-6 md:gap-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] w-full max-w-3xl relative overflow-x-hidden overflow-y-auto max-h-[90vh] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
             >
               {/* Decorative background glows */}
               <div className="absolute -top-32 -right-32 w-64 h-64 bg-[#fbbf24]/20 blur-[100px] rounded-full pointer-events-none" />
               <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-purple-600/20 blur-[100px] rounded-full pointer-events-none" />
-              
+
               {/* Header */}
               <div className="flex justify-between items-center relative z-10">
                 <div>
@@ -408,20 +408,20 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
               {/* Form */}
               <form className="flex flex-col gap-6 relative z-10" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
-                  
+
                   {/* Title */}
                   <div className="flex flex-col gap-2.5">
                     <label className="text-xs font-bold text-gray-300 uppercase tracking-widest flex items-center gap-2">
                       <FileText size={14} className="text-[#fbbf24]" /> Lottery Name
                     </label>
                     <div className="relative">
-                      <input 
-                        type="text" 
-                        required 
+                      <input
+                        type="text"
+                        required
                         value={formData.lotteryName}
-                        onChange={e => setFormData({...formData, lotteryName: e.target.value})}
-                        placeholder="Enter a title" 
-                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-[#fbbf24] focus:ring-1 focus:ring-[#fbbf24] focus:bg-white/10 transition-all shadow-inner" 
+                        onChange={e => setFormData({ ...formData, lotteryName: e.target.value })}
+                        placeholder="Enter a title"
+                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-[#fbbf24] focus:ring-1 focus:ring-[#fbbf24] focus:bg-white/10 transition-all shadow-inner"
                       />
                     </div>
                   </div>
@@ -432,13 +432,13 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
                       <FileText size={14} className="text-[#fbbf24]" /> Lottery No
                     </label>
                     <div className="relative">
-                      <input 
-                        type="text" 
-                        required 
+                      <input
+                        type="text"
+                        required
                         value={formData.lotteryNo}
-                        onChange={e => setFormData({...formData, lotteryNo: e.target.value})}
-                        placeholder="e.g. L-12345" 
-                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-[#fbbf24] focus:ring-1 focus:ring-[#fbbf24] focus:bg-white/10 transition-all shadow-inner" 
+                        onChange={e => setFormData({ ...formData, lotteryNo: e.target.value })}
+                        placeholder="e.g. L-12345"
+                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-[#fbbf24] focus:ring-1 focus:ring-[#fbbf24] focus:bg-white/10 transition-all shadow-inner"
                       />
                     </div>
                   </div>
@@ -450,14 +450,14 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
                     </label>
                     <div className="relative">
                       <span className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 font-bold">₹</span>
-                      <input 
-                        type="number" 
-                        required 
+                      <input
+                        type="number"
+                        required
                         value={formData.price}
-                        onChange={e => setFormData({...formData, price: e.target.value})}
-                        placeholder="40" 
-                        min="1" 
-                        className="w-full bg-white/5 border border-white/10 rounded-2xl pl-10 pr-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-[#fbbf24] focus:ring-1 focus:ring-[#fbbf24] focus:bg-white/10 transition-all shadow-inner" 
+                        onChange={e => setFormData({ ...formData, price: e.target.value })}
+                        placeholder="40"
+                        min="1"
+                        className="w-full bg-white/5 border border-white/10 rounded-2xl pl-10 pr-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-[#fbbf24] focus:ring-1 focus:ring-[#fbbf24] focus:bg-white/10 transition-all shadow-inner"
                       />
                     </div>
                   </div>
@@ -467,20 +467,20 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
                     <label className="text-xs font-bold text-gray-300 uppercase tracking-widest flex items-center gap-2">
                       <Calendar size={14} className="text-[#fbbf24]" /> Schedule
                     </label>
-                    <div className="grid grid-cols-2 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div className="relative group">
-                        <input 
-                          type="date" 
-                          required 
+                        <input
+                          type="date"
+                          required
                           value={formData.date}
-                          onChange={e => setFormData({...formData, date: e.target.value})}
-                          className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-[#fbbf24] focus:ring-1 focus:ring-[#fbbf24] focus:bg-white/10 transition-all shadow-inner [color-scheme:dark]" 
+                          onChange={e => setFormData({ ...formData, date: e.target.value })}
+                          className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-[#fbbf24] focus:ring-1 focus:ring-[#fbbf24] focus:bg-white/10 transition-all shadow-inner [color-scheme:dark]"
                         />
                       </div>
                       <div className="relative group">
-                        <CustomTimePicker 
+                        <CustomTimePicker
                           value={formData.time}
-                          onChange={(val) => setFormData({...formData, time: val})}
+                          onChange={(val) => setFormData({ ...formData, time: val })}
                         />
                       </div>
                     </div>
@@ -493,13 +493,13 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
                     </label>
                     <div className="relative">
                       <span className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 font-bold">₹</span>
-                      <input 
-                        type="text" 
-                        required 
+                      <input
+                        type="text"
+                        required
                         value={formData.jackpotAmount}
-                        onChange={e => setFormData({...formData, jackpotAmount: e.target.value})}
-                        placeholder="e.g. 1 Crore, 50 Lakhs" 
-                        className="w-full bg-white/5 border border-white/10 rounded-2xl pl-10 pr-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-[#fbbf24] focus:ring-1 focus:ring-[#fbbf24] focus:bg-white/10 transition-all shadow-inner font-bold text-[#fbbf24]" 
+                        onChange={e => setFormData({ ...formData, jackpotAmount: e.target.value })}
+                        placeholder="e.g. 1 Crore, 50 Lakhs"
+                        className="w-full bg-white/5 border border-white/10 rounded-2xl pl-10 pr-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-[#fbbf24] focus:ring-1 focus:ring-[#fbbf24] focus:bg-white/10 transition-all shadow-inner font-bold text-[#fbbf24]"
                       />
                     </div>
                   </div>
@@ -510,19 +510,19 @@ export const LotteryManager: React.FC<LotteryManagerProps> = ({ showTemporaryMes
                       <ImageIcon size={14} className="text-[#fbbf24]" /> Promotional Image
                     </label>
                     <div className="relative group">
-                      <input 
-                        type="file" 
+                      <input
+                        type="file"
                         id="lottery-image"
-                        accept="image/*" 
+                        accept="image/*"
                         onChange={handleImageChange}
                         className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                       />
                       <div className={`w-full border-2 border-dashed ${formData.image ? 'border-[#fbbf24]/50 bg-[#fbbf24]/5' : 'border-white/20 bg-white/5'} rounded-2xl p-6 flex flex-col items-center justify-center gap-3 transition-all group-hover:border-[#fbbf24] group-hover:bg-white/10`}>
                         {formData.image ? (
                           <div className="flex flex-col items-center gap-3 relative">
-                            <button 
-                              type="button" 
-                              onClick={(e) => { e.preventDefault(); e.stopPropagation(); setFormData(prev => ({ ...prev, image: "" })); }} 
+                            <button
+                              type="button"
+                              onClick={(e) => { e.preventDefault(); e.stopPropagation(); setFormData(prev => ({ ...prev, image: "" })); }}
                               className="absolute -top-3 -right-3 bg-red-500 hover:bg-red-600 text-white rounded-full p-1.5 z-20 transition-all shadow-md cursor-pointer"
                               title="Remove image"
                             >
