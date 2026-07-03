@@ -18,8 +18,8 @@ const connect = async () => {
 
 await connect();
 
-const Email = "admin@gmail.com";
-const Password = "Admin@123";
+const Email = process.env.EMAIL;
+const Password = process.env.ADMIN_PASSWORD;
 
 try {
     const salt = await bcrypt.genSalt(10);

@@ -83,7 +83,7 @@ export const editLottery = async (req: Request, res: Response) => {
         const { id } = req.params;
         const updates = req.body;
 
-        const updatedLottery = await Lottery.findByIdAndUpdate(id, updates, { new: true });
+        const updatedLottery = await Lottery.findByIdAndUpdate(id, updates, { returnDocument: 'after' });
         
         if (!updatedLottery) {
             return res.status(404).json({ message: "Lottery not found" });
