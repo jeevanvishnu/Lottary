@@ -91,7 +91,7 @@ export const Footer = () => {
       </div>
 
       <div className="max-w-7xl mx-auto pt-8 border-t border-[#6d28d9]/25 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[#94B8C8] font-medium">
-        <p>&copy; {new Date().getFullYear()} Sri Senthil Vel Lottery. All rights reserved. Authorized Seller.</p>
+        <p>&copy; {new Date().getFullYear()} Sree Senthilvel lottery agency. All rights reserved. Authorized Seller.</p>
         <div className="flex gap-6">
           <a href="#" className="hover:text-[#fbbf24] transition-colors">Privacy Policy</a>
           <a href="#" className="hover:text-[#fbbf24] transition-colors">Terms of Service</a>

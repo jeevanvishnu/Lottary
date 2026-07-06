@@ -31,7 +31,7 @@ export const AboutUs = () => {
             className="space-y-6 text-[#94B8C8] text-lg leading-relaxed"
           >
             <p>
-              We are a Kerala government-authorized agency and we are a wholesale and retailer. We have more than 50,000 customers all over India. Sri Senthil Vel Lottery is one of the leading Kerala lottery agents in Palakkad, providing trusted lottery services since our establishment.
+              We are a Kerala government-authorized agency and we are a wholesale and retailer. We have more than 50,000 customers all over India. Sree Senthilvel lottery agency is one of the leading Kerala lottery agents in Palakkad, providing trusted lottery services since our establishment.
             </p>
             <p>
               As an authorized agency, we sell Kerala State Lottery tickets which is a government lottery founded in 1967 under the Kerala government's lottery department. All Indian people can buy Kerala government lottery tickets through us and win prizes with their luck.

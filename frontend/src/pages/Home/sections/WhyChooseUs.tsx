@@ -14,7 +14,7 @@ export const WhyChooseUs = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16 relative">
           <h2 className="relative z-10 text-3xl md:text-5xl font-bold mb-4 text-[#1a0b2e] drop-shadow-sm">
-            Why Trust <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d97706] to-[#b45309]">Sri Senthil Vel Lottery</span>
+            Why Trust <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d97706] to-[#b45309]">Sree Senthilvel lottery agency</span>
           </h2>
           <p className="relative z-10 text-gray-600 text-lg max-w-2xl mx-auto">Your security and trust are our top priorities. We guarantee transparency in every ticket you buy.</p>
         </div>

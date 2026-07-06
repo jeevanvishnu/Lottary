@@ -90,7 +90,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ setAdminUser }) => {
               <div className="absolute inset-0 bg-yellow-500 blur-2xl opacity-10 group-hover:opacity-25 transition-opacity duration-500 rounded-full" />
               <img
                 src={Logo}
-                alt="Sri Senthil Vel Lottery Logo"
+                alt="Sree Senthilvel lottery agency Logo"
                 className="h-20 w-auto object-contain relative z-10 transition-transform duration-500 group-hover:scale-105"
               />
             </div>
@@ -118,7 +118,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ setAdminUser }) => {
           </AnimatePresence>
 
           {/* Login Form */}
-          <form onSubmit={handleLoginSubmit} className="flex flex-col gap-5">
+          <form onSubmit={handleLoginSubmit} className="flex flex-col gap-5" autoComplete="off">
             {/* Email Field */}
             <div className="flex flex-col gap-2">
               <label htmlFor="email" className="text-xs font-bold uppercase tracking-wider text-gray-300">
@@ -132,6 +132,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ setAdminUser }) => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="admin@gmail.com"
+                  autoComplete="off"
                   className="w-full bg-[#003344]/20 border border-[#6d28d9]/40 rounded-xl py-3 pl-12 pr-4 text-white focus:outline-none focus:border-[#fbbf24] focus:shadow-[0_0_15px_rgba(251,191,36,0.2)] transition-all placeholder:text-[#94B8C8]/40 cursor-text"
                   disabled={loading}
                 />
@@ -151,6 +152,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ setAdminUser }) => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
+                  autoComplete="new-password"
                   className="w-full bg-[#003344]/20 border border-[#6d28d9]/40 rounded-xl py-3 pl-12 pr-12 text-white focus:outline-none focus:border-[#fbbf24] focus:shadow-[0_0_15px_rgba(251,191,36,0.2)] transition-all placeholder:text-[#94B8C8]/40 cursor-text"
                   disabled={loading}
                 />

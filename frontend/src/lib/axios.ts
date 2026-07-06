@@ -15,3 +15,15 @@ axiosInstance.interceptors.request.use((config) => {
   }
   return config;
 });
+
+axiosInstance.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response && error.response.status === 401) {
+      localStorage.removeItem("admin_token");
+      localStorage.removeItem("adminUser");
+      window.dispatchEvent(new Event("admin-unauthorized"));
+    }
+    return Promise.reject(error);
+  }
+);

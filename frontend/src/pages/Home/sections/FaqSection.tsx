@@ -7,7 +7,7 @@ const faqs = [
   { q: "Where can I check the daily draw results?", a: "You can find all results in our 'Latest Results' section. We publish the winning numbers immediately after the official 3:00 PM draw in Thiruvananthapuram. You can also verify them on the official statelottery.kerala.gov.in website." },
   { q: "How do I claim my prize money?", a: "For prizes up to ₹5,000, the amount can be claimed instantly at our shop, and we can transfer it to your account. For larger prizes, the original physical ticket must be surrendered to a bank or a government lottery office with ID proof, and we will physically hand over the ticket or assist you with this process." },
   { q: "Is it safe to pay online?", a: "Absolutely. We use secure UPI/Card payment methods to ensure your transactions for purchasing the physical tickets are 100% safe." },
-  { q: "Are these official Kerala Bhagyakuri tickets?", a: "Yes, Sri Senthil Vel Lottery is an authorized seller of authentic Kerala State Lotteries (Bhagyakuri). Every scanned ticket you receive corresponds to a genuine physical paper ticket with a valid serial number." },
+  { q: "Are these official Kerala Bhagyakuri tickets?", a: "Yes, Sree Senthilvel lottery agency is an authorized seller of authentic Kerala State Lotteries (Bhagyakuri). Every scanned ticket you receive corresponds to a genuine physical paper ticket with a valid serial number." },
 ];
 
 export const FaqSection = () => {

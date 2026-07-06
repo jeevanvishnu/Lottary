@@ -25,14 +25,14 @@ export const login = async (req: Request, res: Response) => {
         const token = jwt.sign(
             { id: admin._id, email: admin.email },
             process.env.JWT_SECRET || "default_secret",
-            { expiresIn: "1d" }
+            { expiresIn: "1h" }
         );
 
         res.cookie("admin_token", token, {
             httpOnly: true,
             secure: true,
             sameSite: "none",
-            maxAge: 24 * 60 * 60 * 1000 // 1 day
+            maxAge: 60 * 60 * 1000 // 1 hour
         });
 
         res.status(200).json({ message: "Login successful", token, admin: { id: admin._id, email: admin.email } });

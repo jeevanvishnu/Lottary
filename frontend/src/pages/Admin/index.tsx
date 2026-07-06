@@ -9,13 +9,33 @@ export interface AdminUser {
 
 import { toast } from "react-hot-toast";
 
+const isTokenExpired = (token: string | null): boolean => {
+  if (!token) return true;
+  try {
+    const parts = token.split('.');
+    if (parts.length !== 3) return true;
+    let base64 = parts[1].replace(/-/g, '+').replace(/_/g, '/');
+    while (base64.length % 4) {
+      base64 += '=';
+    }
+    const decoded = window.atob(base64);
+    const payload = JSON.parse(decoded);
+    if (payload.exp && Date.now() >= payload.exp * 1000) {
+      return true;
+    }
+    return false;
+  } catch (e) {
+    return true;
+  }
+};
+
 export const AdminRoot = () => {
   const [adminUser, setAdminUser] = useState<AdminUser | null>(null);
 
   useEffect(() => {
     const savedAdmin = localStorage.getItem("adminUser");
     const token = localStorage.getItem("admin_token");
-    if (savedAdmin && token) {
+    if (savedAdmin && token && !isTokenExpired(token)) {
       try {
         setAdminUser(JSON.parse(savedAdmin));
       } catch (e) {
@@ -27,6 +47,29 @@ export const AdminRoot = () => {
       localStorage.removeItem("admin_token");
       setAdminUser(null);
     }
+  }, []);
+
+  useEffect(() => {
+    const handleUnauthorized = () => {
+      localStorage.removeItem("adminUser");
+      localStorage.removeItem("admin_token");
+      setAdminUser(null);
+      toast.error("Session expired. Please log in again.");
+    };
+
+    window.addEventListener("admin-unauthorized", handleUnauthorized);
+
+    const interval = setInterval(() => {
+      const token = localStorage.getItem("admin_token");
+      if (token && isTokenExpired(token)) {
+        handleUnauthorized();
+      }
+    }, 15000);
+
+    return () => {
+      window.removeEventListener("admin-unauthorized", handleUnauthorized);
+      clearInterval(interval);
+    };
   }, []);
 
   const handleLogout = () => {

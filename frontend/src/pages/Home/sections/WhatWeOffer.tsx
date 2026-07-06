@@ -21,7 +21,7 @@ export const WhatWeOffer = () => {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#fbbf24]/10 rounded-full blur-3xl z-0"></div>
           <h2 className="relative z-10 text-3xl md:text-5xl font-bold mb-4 text-[#1a0b2e] drop-shadow-sm flex items-center justify-center gap-2">
             <span>
-              Sri Senthil Vel Lottery
+              Sree Senthilvel lottery agency
             </span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d97706] to-[#b45309]"> Offers</span>
           </h2>
