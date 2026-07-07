@@ -65,7 +65,7 @@ export const Footer = () => {
               <div className="w-10 h-10 rounded-full bg-[#6d28d9]/20 flex items-center justify-center text-[#007A94] group-hover:bg-[#6d28d9] group-hover:text-white transition-colors shrink-0">
                 <Mail className="w-4 h-4" />
               </div>
-              <span className="mt-2 group-hover:text-white transition-colors">Senthillott@gmail.com</span>
+              <span className="mt-2 group-hover:text-white transition-colors">senthillott@gmail.com</span>
             </li>
             <li className="flex items-start gap-4 group cursor-pointer">
               <div className="w-10 h-10 rounded-full bg-[#fbbf24]/10 flex items-center justify-center text-[#fbbf24] group-hover:bg-[#fbbf24] group-hover:text-[#1a0b2e] transition-colors shrink-0">
