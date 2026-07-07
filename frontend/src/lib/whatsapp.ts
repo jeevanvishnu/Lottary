@@ -1,5 +1,5 @@
 export const handleBuyWhatsApp = (lottery: any) => {
-  const phoneNumber = "916382932961";
+  const phoneNumber = "916379024854";
   const message = `Hello, I want to buy the lottery ticket:
 
 *Name:* ${lottery.lotteryName}

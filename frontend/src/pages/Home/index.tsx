@@ -112,10 +112,10 @@ export const Home = () => {
                 size="lg"
                 variant="outline"
                 className="w-auto h-14 rounded-full px-8 text-lg border-2 border-[#8b5cf6]/60 text-[#e9d5ff] hover:bg-[#8b5cf6]/20 hover:text-white font-bold backdrop-blur-md cursor-pointer shadow-[0_8px_25px_-5px_rgba(139,92,246,0.25)] transition-all hover:scale-105 active:scale-95 bg-[#0a0118]/40 flex items-center justify-center gap-3"
-                onClick={() => window.location.href = 'tel:6382932961'}
+                onClick={() => window.location.href = 'tel:6379024854'}
               >
                 <Phone className="w-5 h-5 text-[#fbbf24]" />
-                63829 32961
+                63790 24854
               </Button>
             </div>
           </motion.div>
@@ -156,10 +156,10 @@ export const Home = () => {
               size="lg"
               variant="outline"
               className="w-full h-14 rounded-full px-8 text-lg border-2 border-[#8b5cf6]/60 text-[#e9d5ff] hover:bg-[#8b5cf6]/20 hover:text-white font-bold backdrop-blur-md cursor-pointer shadow-[0_8px_25px_-5px_rgba(139,92,246,0.25)] transition-all active:scale-95 bg-[#0a0118]/40 flex items-center justify-center gap-3"
-              onClick={() => window.location.href = 'tel:6382932961'}
+              onClick={() => window.location.href = 'tel:6379024854'}
             >
               <Phone className="w-5 h-5 text-[#fbbf24]" />
-              63829 32961
+              63790 24854
             </Button>
           </div>
         </main>
